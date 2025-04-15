@@ -1,0 +1,127 @@
+.containerCustomerContainer {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: #F1F3F6;
+
+}
+
+.containerCustomerContainer .content_01 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    min-width: 55%;
+    padding: 40px;
+    background: white;
+}
+
+.content_01 .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content_01 .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.content_01 .form > p {
+    margin: 0 auto
+}
+
+.content_01 .form_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content_01 .form_inputs .form_input {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.content_01 .form_inputs .form_input>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.content_01 .form_inputs .form_input>div .input {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F1F3F6;
+    border-radius: 8px;
+}
+
+.content_01 .form_inputs .form_input>div .input input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 22px;
+    max-width: 80%;
+    padding: 10px 20px;
+}
+
+.content_01 .form_inputs .form_input>div .input div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #014034;
+    padding: 15px 0px;
+    width: 60px;
+    border-radius: 8px;
+}
+
+.content_01 .button_sign_or_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.content_01 .button_sign_or_login button {
+    width: 100%;
+    border: 2px solid #014034;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content_01 .button_sign_or_login .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.button_sign_or_login #register{
+    background-color: #014034;
+    color: white;
+}
+
+.button_sign_or_login #login {
+    background-color: white;
+    color: #014034;
+    transition: 0.3s;
+}
+
+.button_sign_or_login #login:hover {
+    box-shadow: 0px 5px 20px 0px #0140344f;
+}
+
+.containerCustomerContainer .button_sign_or_login .line div {
+    height: 2px;
+    width: 100%;
+    background-color: #C2C2C2;
+}
