@@ -1,12 +1,44 @@
 import './style.css';
 
 import user from '../../../assets/images/customer/user.png';
-import email from '../../../assets/images/customer/email.png';
-import rg from '../../../assets/images/customer/rg.png';
-import password from '../../../assets/images/customer/password.png';
+import emailImg from '../../../assets/images/customer/email.png';
+import rgImg from '../../../assets/images/customer/rg.png';
+import passwordImg from '../../../assets/images/customer/password.png';
+import { useState } from 'react';
 
 export default function Register() {
-    
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [rg, setRg] = useState("");
+    const [password, setPassword] = useState("");
+
+    const URL = "http://localhost:8080/customer";
+
+    async function requestData() {
+        const response = await fetch(URL, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                rg: rg,
+                password: password
+            })
+        })
+
+        console.log(response.status);
+
+//        if (response.status == 200) {
+//            const parseJson = await response.json();
+//            console.log(parseJson);
+//        }
+
+    }
+
     return (
         <div className="containerCustomerContainer">
             <div className='content_01'>
@@ -22,7 +54,7 @@ export default function Register() {
                             <div>
                                 <p>Nome</p>
                                 <div className="input">
-                                    <input type="text" placeholder="fulano de tal" name="" id="" />
+                                    <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="fulano de tal" name="" id="" />
                                     <div>
                                         <img src={user} alt="" />
                                     </div>
@@ -31,9 +63,9 @@ export default function Register() {
                             <div>
                                 <p>E-mail</p>
                                 <div className="input">
-                                    <input type="text" placeholder="fulano@gmail.com" name="" id="" />
+                                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="fulano@gmail.com" name="" id="" />
                                     <div>
-                                        <img src={email} alt="" />
+                                        <img src={emailImg} alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -42,25 +74,25 @@ export default function Register() {
                             <div>
                                 <p>RG</p>
                                 <div className="input">
-                                    <input type="text" placeholder="12.345.678-X" name="" id="" />
+                                    <input type="text" value={rg} onChange={(e) => setRg(e.target.value)} placeholder="12.345.678-X" name="" id="" />
                                     <div>
-                                        <img src={rg} alt="" />
+                                        <img src={rgImg} alt="" />
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <p>Senha</p>
                                 <div className="input">
-                                    <input type="text" placeholder="Digita a senha" name="" id="" />
+                                    <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Digita a senha" name="" id="" />
                                     <div>
-                                        <img src={password} alt="" />
+                                        <img src={passwordImg} alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="button_sign_or_login">
-                        <button id="register">Cadastrar</button>
+                        <button id="register" onClick={() => requestData()} >Cadastrar</button>
                         <div className="line">
                             <div></div>
                             <p>OU</p>
