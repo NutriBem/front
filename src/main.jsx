@@ -1,18 +1,12 @@
-import './App.css';
+import React from 'react' 
+import ReactDOM from 'react-dom/client'
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import Home from './pages/home';
+import Routess from './Routes.jsx'
+import './App.css' 
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Register from './pages/customer/register';
-
-createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' Component={Home} />
-        <Route path='/register' Component={Register} />
-      </Routes>
-    </BrowserRouter>
+    <Routess />
   </StrictMode>
-);
+)
