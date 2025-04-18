@@ -1,9 +1,9 @@
 import './style.css';
 
-import user from '../../../assets/images/customer/user.png';
-import emailImg from '../../../assets/images/customer/email.png';
-import rgImg from '../../../assets/images/customer/rg.png';
-import passwordImg from '../../../assets/images/customer/password.png';
+import user from '../../../../public/assets/images/customer/user.png';
+import emailImg from '../../../../public/assets/images/customer/email.png';
+import rgImg from '../../../../public/assets/images/customer/rg.png';
+import passwordImg from '../../../../public/assets/images/customer/password.png';
 import { useState } from 'react';
 
 export default function Register() {
