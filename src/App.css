@@ -1,4 +1,16 @@
+@font-face {
+  font-family: 'poppins-medium';
+  src: url('../src/assets/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'poppins-light';
+  src: url('../src/assets/fonts/poppins/Poppins-Light.ttf');
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'poppins-medium';
 }
+

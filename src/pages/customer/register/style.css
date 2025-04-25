@@ -18,9 +18,34 @@
 
 .content_01 .header {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    gap:50px;
+}
+
+.content_01 .header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.content_01 .header div > p {
+    font-size: 55px;
+    color: #A0C71C;
+}
+
+.content_01 .header > p {
+    color: #555555;
+    font-weight: bold;
+}
+
+.content_01 .header img {
+    max-width: 140px;
+    width: 100%;
 }
 
 .content_01 .form {
@@ -30,8 +55,9 @@
     gap: 50px;
 }
 
-.content_01 .form > p {
-    margin: 0 auto
+.content_01 .form {
+    margin: 0 auto;
+    color: #555555;
 }
 
 .content_01 .form_inputs {
@@ -56,27 +82,37 @@
 .content_01 .form_inputs .form_input>div .input {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #F1F3F6;
     border-radius: 8px;
 }
+
+.content_01 .form_inputs .form_input>div .input #eye {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 25px;
+}
+
 
 .content_01 .form_inputs .form_input>div .input input {
     width: 100%;
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 22px;
+    font-size: 18px;
     max-width: 80%;
     padding: 10px 20px;
+    font-family: 'poppins-light';
 }
 
 .content_01 .form_inputs .form_input>div .input div {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #014034;
+    background-color: #A0C71C;
     padding: 15px 0px;
-    width: 60px;
+    min-width: 60px;
     border-radius: 8px;
 }
 
@@ -89,7 +125,7 @@
 
 .content_01 .button_sign_or_login button {
     width: 100%;
-    border: 2px solid #014034;
+    border: 2px solid #A0C71C;
     border-radius: 8px;
     padding: 20px;
     font-size: 22px;
@@ -106,18 +142,19 @@
 }
 
 .button_sign_or_login #register{
-    background-color: #014034;
+    background-color: #A0C71C;
     color: white;
+    transition: 0.3s;
 }
 
 .button_sign_or_login #login {
     background-color: white;
-    color: #014034;
+    color: #A0C71C;
     transition: 0.3s;
 }
 
-.button_sign_or_login #login:hover {
-    box-shadow: 0px 5px 20px 0px #0140344f;
+.button_sign_or_login #login:hover, #register:hover  {
+    box-shadow: 0px 10px 20px 0px #9fc71c77;
 }
 
 .containerCustomerContainer .button_sign_or_login .line div {
