@@ -1,0 +1,18 @@
+.container {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.header img {
+    max-width: 100px;
+    width: 100%;
+    background-color: red;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
