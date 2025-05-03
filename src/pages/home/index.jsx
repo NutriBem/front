@@ -15,7 +15,7 @@ export default function Home() {
                     <img src={nutriBem} alt="" />
                 </div>
 
-                <h1>NUTRIBEM</h1>
+                <p className='titulo'>NUTRIBEM</p>
 
                 <div className='icon'>
                     <img src={insta} alt="" />
@@ -32,9 +32,12 @@ export default function Home() {
 
             <div className='carrossel'>
                 <img src={carrossel} alt="" />
+                <h2>O caminho para o<br></br>
+                    bem-estar começa aqui</h2>
+            </div>
 
-                <p>O caminho para o<br></br>
-                    bem-estar começa aqui</p>
+            <div className='grid'>
+                <div></div>
             </div>
 
         </div>
