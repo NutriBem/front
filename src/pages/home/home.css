@@ -1,18 +1,17 @@
-.container {
+.container_home {
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.header img {
+.container_home .header .logo img {
     max-width: 100px;
     width: 100%;
-    background-color: red;
 }
 
-.header {
+.container_home .header .logo {
     display: flex;
     align-items: center;
     gap: 20px;
-    
+    background-color: red;
 }
