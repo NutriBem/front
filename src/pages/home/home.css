@@ -4,14 +4,62 @@
     box-sizing: border-box;
 }
 
+.container_home .header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
 .container_home .header .logo img {
     max-width: 100px;
     width: 100%;
 }
 
-.container_home .header .logo {
+
+.container_home .header h1 {
+    color: #01261f;
+    gap: 2px;
+}
+
+.container_home .header .icon img {
+    max-width: 40px;
+    width: 100%;
+}
+
+.container_home .header .icon {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: red;
+    margin-left: 450px;
+    gap: 30px;
+}
+
+.container_home .header .login {
+    margin-left: auto;
+}
+
+.container_home .header #login {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #A0C71C;
+    color: white;
+    font-weight: bold;
+}
+
+.container_home .header p {
+    margin-left: 20px;
+    color: #01261f;
+    font-weight: bold;
+}
+
+.container_home .carrossel img {
+    max-width: 1350px;
+    width: 100%;
+}
+
+.container_home .carrossel p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 75px;
+    color: #010A26;
 }
