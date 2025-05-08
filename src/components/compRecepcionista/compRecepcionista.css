@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  background-color: #f0f2f5;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #A0C71C;
+}
+
+.sidebar .account {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.sidebar .menu-section {
+  margin-bottom: 25px;
+}
+
+.sidebar .menu-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #A0C71C;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, font-weight 0.3s, color 0.3s;
+  color: #333;
+}
+
+.sidebar li:hover {
+  background-color: #f0f2f5;
+  font-weight: 600;
+  color: #A0C71C;
+} 
+
+.sidebar li i {
+  width: 18px;
+  text-align: center;
+}
