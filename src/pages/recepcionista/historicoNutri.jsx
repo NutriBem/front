@@ -1,6 +1,6 @@
 import React from 'react';
 import './historicoNutri.css';
-import Header from './components/compRecepcionista'; 
+import Header from '../../components/compRecepcionista/compRecepcionista'; 
 
 function HistoricoNutri() {
   return (
