@@ -4,8 +4,9 @@ import Register from './pages/customer/register'
 import Home from './pages/home'
 import Login from './pages/customer/login'
 import Nutritionist from './pages/nutricionista/paginaNutri'
-import HistoricalNutri from './pages/recepcionista/historicoNutri'
-import  HistoricalPatient from './pages/historicoPaciente/historicoPaciente'
+import HistoricalNutriRep from './pages/recepcionista/historicoNutri/historicoNutri'
+import HistoricalPatient from './pages/historicoPaciente/historicoPaciente'
+import HistoricoPacienteRep from './pages/recepcionista/historicoPaciente/historicoPaciente'
 
 import NotFound from './errors'
 
@@ -18,8 +19,9 @@ export default function Routess() {
         <Route path='/login' element={<Login />} />
 
         <Route path='/nutritionist' element={<Nutritionist/>}/>
-        <Route path='/historical' element={<HistoricalNutri/>}/>
-        <Route path='/historicalPatient' element={<HistoricalPatient/>}/> 
+        <Route path='/historical' element={<HistoricalNutriRep/>}/>
+        <Route path='/historicalPatient' element={<HistoricalPatient/>}/>
+        <Route path='/patientHistorical' element={<HistoricoPacienteRep/>}/> 
 
         {/*Erros*/}
         <Route path='*' element={<NotFound />}/>

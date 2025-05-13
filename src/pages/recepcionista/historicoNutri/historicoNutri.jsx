@@ -1,14 +1,12 @@
 import React from 'react';
 import './historicoNutri.css';
-import Header from '../../components/compRecepcionista/compRecepcionista'; 
+import Header from '../../../components/compRecepcionista/compRecepcionista'; 
 
 function HistoricoNutri() {
   return (
-    <div>
-      <div id="header-container">
-        <Header />
-      </div>
-
+    <div className="page-container">
+      <Header />
+      
       <main className="content">
         <h1>Histórico de Agendamentos</h1>
 
@@ -28,5 +26,6 @@ function HistoricoNutri() {
     </div>
   );
 }
+
 
 export default HistoricoNutri;
