@@ -8,6 +8,9 @@ import carrossel from '../../../public/assets/images/customer/Carrossel.jpeg';
 import gastrointestinais from '../../../public/assets/images/customer/Gastrointestinais.jpg';
 import metabolica from '../../../public/assets/images/customer/Metabolica.jpg';
 import obesidade from '../../../public/assets/images/customer/Obesidade.jpg';
+import oncologia from '../../../public/assets/images/customer/Oncologia.jpeg';
+import esporte from '../../../public/assets/images/customer/Esporte.jpeg';
+import hipocaloria from '../../../public/assets/images/customer/Hipocaloria.jpg';
 
 
 export default function Home() {
@@ -39,23 +42,38 @@ export default function Home() {
                     bem-estar começa aqui</h2>
             </div>
 
-            <div className='grid'>
-                <p>Tratamentos</p>
+            <div className='tratamentoGrid'>
+                <p className='titulo2'>Tratamentos</p>
 
-                <div className='gastrointestinais'>
+                <a href='/gastrointestinais' className='card'>
                     <img src={gastrointestinais} alt="" /> 
                     <p>Gastrointestinais</p>
-                </div>
+                </a>
 
-                <div className='metabolica'>
+                <a href='/metabolica' className='card'>
                     <img src={metabolica} alt="" />
                     <p>Metabólica</p>
-                </div>
+                </a>
 
-                <div className='obesidade'>
+                <a href='/obesidade' className='card'>
                     <img src={obesidade} alt="" />
                     <p>Obsidade</p>
-                </div>
+                </a>
+
+                <a href='/oncologia' className='card'>
+                    <img src={oncologia} alt="" />
+                    <p>Oncologia</p>
+                </a>
+
+                <a href='/esposte' className='card'>
+                    <img src={esporte} alt="" />
+                    <p>Esporte</p>
+                </a>
+                
+                <a href='/hipocaloria' className='card'>
+                    <img src={hipocaloria} alt="" />
+                    <p>Hipocaloria</p>
+                </a>
             </div>
 
         </div>
