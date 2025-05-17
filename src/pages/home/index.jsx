@@ -5,6 +5,9 @@ import insta from '../../../public/assets/images/customer/instagram_2.png';
 import linkedin from '../../../public/assets/images/customer/message.png';
 import youtube from '../../../public/assets/images/customer/youtube_2.png';
 import carrossel from '../../../public/assets/images/customer/Carrossel.jpeg';
+import gastrointestinais from '../../../public/assets/images/customer/Gastrointestinais.jpg';
+import metabolica from '../../../public/assets/images/customer/Metabolica.jpg';
+import obesidade from '../../../public/assets/images/customer/Obesidade.jpg';
 
 
 export default function Home() {
@@ -37,7 +40,22 @@ export default function Home() {
             </div>
 
             <div className='grid'>
-                <div></div>
+                <p>Tratamentos</p>
+
+                <div className='gastrointestinais'>
+                    <img src={gastrointestinais} alt="" /> 
+                    <p>Gastrointestinais</p>
+                </div>
+
+                <div className='metabolica'>
+                    <img src={metabolica} alt="" />
+                    <p>Metabólica</p>
+                </div>
+
+                <div className='obesidade'>
+                    <img src={obesidade} alt="" />
+                    <p>Obsidade</p>
+                </div>
             </div>
 
         </div>

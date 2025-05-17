@@ -12,7 +12,7 @@
 }
 
 .container_home .header .logo img {
-    max-width: 100px;
+    max-width: 90px;
     width: 100%;
 }
 
@@ -90,7 +90,7 @@
     text-transform: uppercase;
     font-size: 70px;
     font-weight: bolder;
-    color: #010A26;
+    color: #A0C71C;
     z-index: 2;
     top: 40%;
     left: 25%;
