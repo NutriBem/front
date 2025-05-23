@@ -1,22 +1,6 @@
 import './home.css';
 import './home.js';
-import { images, icons, logos } from '../../config/assets'
-import nutriBem from '../../../public/logoNutriBem.svg';
-import insta from '../../../public/assets/images/customer/instagram_2.png';
-import linkedin from '../../../public/assets/images/customer/message.png';
-import youtube from '../../../public/assets/images/customer/youtube_2.png';
-import carrossel from '../../../public/assets/images/customer/Carrossel.jpeg';
-import gastrointestinais from '../../../public/assets/images/customer/Gastrointestinais.jpg';
-import metabolica from '../../../public/assets/images/customer/Metabolica.jpg';
-import obesidade from '../../../public/assets/images/customer/Obesidade.jpg';
-import oncologia from '../../../public/assets/images/customer/Oncologia.jpeg';
-import esporte from '../../../public/assets/images/customer/Esporte.jpeg';
-import hipocaloria from '../../../public/assets/images/customer/Hipocaloria.jpg';
-import conversation from '../../../public/assets/images/customer/conversation.png';
-import document from '../../../public/assets/images/customer/document.png';
-import loupe from '../../../public/assets/images/customer/loupe.png';
-import restaurant from '../../../public/assets/images/customer/restaurant.png';
-
+import { images, logos } from '../../config/assets'
 
 export default function Home() {
     return (
@@ -51,32 +35,32 @@ export default function Home() {
                 <p className='titulo2'>Tratamentos</p>
 
                 <a href='/gastrointestinais' className='card'>
-                    <img src={gastrointestinais} alt="" />
+                    <img src={images.Gastrointestinais} alt="" />
                     <p>Gastrointestinais</p>
                 </a>
 
                 <a href='/metabolica' className='card'>
-                    <img src={metabolica} alt="" />
+                    <img src={images.Metabolica} alt="" />
                     <p>Metabólica</p>
                 </a>
 
                 <a href='/obesidade' className='card'>
-                    <img src={obesidade} alt="" />
+                    <img src={images.Obesidade} alt="" />
                     <p>Obsidade</p>
                 </a>
 
                 <a href='/oncologia' className='card'>
-                    <img src={oncologia} alt="" />
+                    <img src={images.Oncologia} alt="" />
                     <p>Oncologia</p>
                 </a>
 
                 <a href='/esposte' className='card'>
-                    <img src={esporte} alt="" />
+                    <img src={images.Esporte} alt="" />
                     <p>Esporte</p>
                 </a>
 
                 <a href='/hipocaloria' className='card'>
-                    <img src={hipocaloria} alt="" />
+                    <img src={images.Hipocaloria} alt="" />
                     <p>Hipocaloria</p>
                 </a>
             </div>
@@ -252,7 +236,7 @@ export default function Home() {
                         <p>Você será contatado para avaliação 
                         do seu objetivo, rotina, preferências 
                         e restrições.</p>
-                        <img src={document} alt="" />   
+                        <img src={images.document} alt="" />   
                     </div>
                 </div>
 
@@ -264,7 +248,7 @@ export default function Home() {
                         <p>A nutricionista analisará sua 
                         avliação e criará um plano
                         de fases e estratégias.</p>
-                        <img src={loupe} alt="" />   
+                        <img src={images.loupe} alt="" />   
                     </div>
                 </div>
 
@@ -277,7 +261,7 @@ export default function Home() {
                         orientações e elaborado o
                         seu programa alimentar 
                         para os próximos 30 dias .</p>
-                        <img src={restaurant} alt="" />   
+                        <img src={images.restaurant} alt="" />   
                     </div>
                 </div>
 
@@ -289,7 +273,7 @@ export default function Home() {
                         <p>Você ficará em contato com 
                         a nutricionista para
                         dúvidas e adaptações.</p>
-                        <img src={conversation} alt="" />   
+                        <img src={images.conversation} alt="" />   
                     </div>
                 </div>
 

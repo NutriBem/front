@@ -1,10 +1,20 @@
 export const images = {
-  user: '/src/assets/images/customer/user.png', 
-  email: '/src/assets/images/customer/email.png',
-  instagram_2: '/src/assets/images/customer/instagram_2.png',
-  message: '/src/assets/images/customer/message.png',
-  password: '/src/assets/images/customer/password.png',
   Carrossel: '/src/assets/images/customer/Carrossel.jpeg',
+  conversation: '/src/assets/images/customer/conversation.png',
+  document: '/src/assets/images/customer/document.png',
+  email: '/src/assets/images/customer/email.png',
+  Esporte: '/src/assets/images/customer/Esporte.jpeg',
+  Gastrointestinais: '/src/assets/images/customer/Gastrointestinais.jpg',
+  Hipocaloria: '/src/assets/images/customer/Hipocaloria.jpg',
+  instagram_2: '/src/assets/images/customer/instagram_2.png',
+  loupe: '/src/assets/images/customer/loupe.png',
+  message: '/src/assets/images/customer/message.png',
+  Metabolica: '/src/assets/images/customer/Metabolica.jpg',
+  Obesidade: "/src/assets/images/customer/Obesidade.jpg",
+  Oncologia: '/src/assets/images/customer/Oncologia.jpeg',
+  password: '/src/assets/images/customer/password.png',
+  restaurant: '/src/assets/images/customer/restaurant.png',
+  user: '/src/assets/images/customer/user.png', 
   youtube_2: '/src/assets/images/customer/youtube_2.png'
 };
 
