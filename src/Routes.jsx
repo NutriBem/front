@@ -6,6 +6,7 @@ import Login from './pages/customer/login'
 import Nutritionist from './pages/nutricionista/paginaNutri'
 import HistoricalNutriRep from './pages/recepcionista/historicoNutri/historicoNutri'
 import HistoricalPatient from './pages/historicoPaciente/historicoPaciente'
+import NutriRegistration from './pages/recepcionista/cadastroNutri/cadastroNutri'
 import HistoricoPacienteRep from './pages/recepcionista/historicoPaciente/historicoPaciente'
 
 import NotFound from './errors'
@@ -21,7 +22,8 @@ export default function Routess() {
         <Route path='/nutritionist' element={<Nutritionist/>}/>
         <Route path='/historical' element={<HistoricalNutriRep/>}/>
         <Route path='/historicalPatient' element={<HistoricalPatient/>}/>
-        <Route path='/patientHistorical' element={<HistoricoPacienteRep/>}/> 
+        <Route path='/patientHistorical' element={<HistoricoPacienteRep/>}/>
+        <Route path='/nutriRegister' element={<NutriRegistration/>}/>
 
         {/*Erros*/}
         <Route path='*' element={<NotFound />}/>
