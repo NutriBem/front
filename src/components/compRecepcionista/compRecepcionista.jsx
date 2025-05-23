@@ -5,11 +5,9 @@ function Sidebar() {
   return (
     <header className="sidebar">
       <div className="logo">Dashboard</div>
-      <div className="account">Sua conta</div>
-
       <nav>
         <div className="menu-section">
-          <div className="menu-title">Nutrologo</div>
+          <div className="menu-title">Nutrólogo</div>
           <ul>
             <li>Adicionar Nutricionista</li>
             <li>Lista de Nutricionistas</li>
