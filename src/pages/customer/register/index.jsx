@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ApiService from '../../../connection/ApiService';
 import { images, icons, logos } from '../../../config/assets'
 import './style.css';
+import 'animate.css';
 
 export default function Register() {
     const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ const handleRegister = async (e) => {
                       
                         <div className="form_input">
                             <div>
-                                <label>Nome Completo</label>
+                                <label class="animate__animated animate__fadeIn">Nome Completo</label>
                                 <div className="input">
                                     <input
                                         name="name"
@@ -85,7 +86,7 @@ const handleRegister = async (e) => {
                             </div>
 
                             <div>
-                                <label>E-mail</label>
+                                <label class="animate__animated animate__fadeIn">E-mail</label>
                                 <div className="input">
                                     <input
                                         name="email"
@@ -102,7 +103,7 @@ const handleRegister = async (e) => {
 
                         <div className="form_input">
                             <div>
-                                <label>CPF</label>
+                                <label class="animate__animated animate__fadeIn">CPF</label>
                                 <div className="input">
                                     <input
                                         name="cpf"
@@ -116,7 +117,7 @@ const handleRegister = async (e) => {
                             </div>
 
                             <div>
-                                <label>Senha</label>
+                                <label class="animate__animated animate__fadeIn">Senha</label>
                                 <div className="input">
                                     <input
                                         name="password"
@@ -136,7 +137,7 @@ const handleRegister = async (e) => {
                             </div>
 
                             <div>
-                                <label>Telefone</label>
+                                <label class="animate__animated animate__fadeIn">Telefone</label>
                                 <div className="input">
                                     <input
                                         name="telephone"
