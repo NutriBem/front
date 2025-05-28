@@ -13,9 +13,10 @@
       padding: 40px;
     }
     
-    .content h1 {
+    .content h2 {
       margin-bottom: 24px;
       font-size: 24px;
+      font-family: "inter";
       font-weight: 600;
     }
     
