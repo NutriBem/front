@@ -5,10 +5,9 @@ import Header from '../../../components/compRecepcionista/compRecepcionista';
 function HistoricoNutri() {
   return (
     <div className="page-container">
-      <Header />
-      
+      <Header/>
       <main className="content">
-        <h1>Histórico de Agendamentos</h1>
+        <h2>Histórico de Agendamento</h2>
 
         <div className="filters">
           <input type="text" placeholder="Digite o nome da nutricionista" />
