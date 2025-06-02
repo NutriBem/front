@@ -1,0 +1,73 @@
+.cabecalho-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa; 
+    font-family: "inter";
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.logo-titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-family: "inter";
+    color: #2c2c2c;
+    font-size: 16px;
+}
+
+.icones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icones img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.icones img:hover {
+    transform: scale(1.1);
+}
+
+.login-agendamento {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+#login {
+    background-color: #a7d64b;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "inter";
+    transition: background-color 0.3s ease;
+}
+
+#login:hover {
+    background-color: #8cc43c;
+}
+
+.login-agendamento p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    font-family: "inter";
+}

@@ -1,12 +1,11 @@
 import React from 'react';
 import './historicoPaciente.css';
-
+import Header from '../../components/cabecalhoUser/cabecalhoUser'
 function HistoricoConsultas() {
   return (
     <div>
-      <header>
-        <h1>Histórico de Consultas</h1>
-      </header>
+      <Header/>
+      
 
       <main className="content">
         {/* Componente de consulta será inserido aqui futuramente */}
