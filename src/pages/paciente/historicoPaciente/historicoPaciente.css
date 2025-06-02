@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F1F3F6;
+}
+
+.content {
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: #F1F3F6;
+}
+.content h2 {
+    background: linear-gradient(90deg, #77bb48, #4b8044);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cards-historico {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 200px; 
+    padding: 20px;
+    border: 2px dashed #77bb48; 
+    border-radius: 8px;
+    background-color: #ffffff; 
+    
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-voltar {
+    background-color: #a7d64b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "inter";
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #8cc43c;
+}

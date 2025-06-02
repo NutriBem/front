@@ -1,19 +1,23 @@
 import React from 'react';
 import './historicoPaciente.css';
-import Header from '../../components/cabecalhoUser/cabecalhoUser'
+import Header from '../../../components/cabecalhoUser/cabecalhoUser'
 function HistoricoConsultas() {
   return (
-    <div>
-      <Header/>
-      
+    <div className="page">
+      <Header />
 
       <main className="content">
-        {/* Componente de consulta será inserido aqui futuramente */}
+        <h2>Histórico de Agendamento</h2>
+
+        <section className="cards-historico">
+          {/* Os agendamentos serão renderizados aqui dinamicamente */}
+        </section>
       </main>
 
       <footer>
         <a href="#" className="btn-voltar">Voltar para área do paciente</a>
       </footer>
+      
     </div>
   );
 }

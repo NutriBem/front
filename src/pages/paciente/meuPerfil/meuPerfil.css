@@ -1,0 +1,99 @@
+.perfil-content {
+    max-width: 1200px;  
+    margin: 40px auto;  
+    padding: 40px;
+    font-family: "inter";
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.perfil-titulo {
+    background: linear-gradient(90deg, #8cc43c, #2f5530);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px 12px 0 0;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "inter";
+}
+
+.perfil-bemvindo {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 20px 0;
+}
+
+.bemvindo-texto {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "inter";
+    color: #333;
+    margin-left: 25px;
+}
+
+.email-dinamico {
+    font-size: 14px;
+    font-family: "inter";
+    color: #777;
+    margin-top: 6px;
+    margin-left: 25px;
+}
+
+.botoes-perfil {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    margin-left: 25px;
+}
+
+.btn-perfil, .btn-editar {
+    background-color: #8cc43c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "inter";
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar {
+    background-color: #a7d64b;
+}
+
+.btn-perfil:hover, .btn-editar:hover {
+    background-color: #75b336;
+}
+
+.form-perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 50px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-family: "inter";
+    margin-left: 25px;
+}
+
+.campo input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: "Inter";
+    font-size: 14px;
+    margin-left: 25px;
+}
