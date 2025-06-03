@@ -1,164 +1,118 @@
-.containerCustomerContainer {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    background: #F1F3F6;
-
-}
-
-.containerCustomerContainer .content_01 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100vh;
-    min-width: 55%;
-    padding: 40px;
-    background: white;
-}
-
-.content_01 .header {
+.register-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    gap:50px;
+    height: 100vh;
+    background: #f7f8fa;
 }
 
-.content_01 .header div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-
-.content_01 .header div > p {
-    font-size: 55px;
-    color: #01261f;
-}
-
-.content_01 .header > p {
-    color: #555555;
-    font-weight: bold;
-}
-
-.content_01 .header img {
-    max-width: 140px;
+.register-box {
+    background: #fff;
+    padding: 80px;
+    border-radius: 14px; 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     width: 100%;
-}
-
-.content_01 .form {
+    max-width: 600px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.content_01 .form {
-    margin: 0 auto;
-    color: #555555;
-}
-
-.content_01 .form_inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.content_01 .form_inputs .form_input {
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
     gap: 30px;
 }
 
-.content_01 .form_inputs .form_input>div {
+.logo {
+    width: 100px; 
+}
+
+.brand-name {
+    font-weight: bold;
+    font-family: "inter";
+    font-size: 28px;
+    color: #333;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: "inter";
+    margin-bottom: 30px; 
+    color: #555;
+}
+
+.register-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    gap: 25px; 
 }
 
-.content_01 .form_inputs .form_input>div .input {
+.form-row {
     display: flex;
-    justify-content: space-between;
+    gap: 25px; 
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
     align-items: center;
-    background-color: #F1F3F6;
-    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    padding: 16px 20px; 
 }
 
-.content_01 .form_inputs .form_input>div .input #eye {
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    margin-right: 25px;
-}
-
-
-.content_01 .form_inputs .form_input>div .input input {
-    width: 100%;
+.input-group input {
     border: none;
     outline: none;
-    background-color: transparent;
-    font-size: 18px;
-    max-width: 80%;
-    padding: 10px 20px;
-    font-family: 'poppins-light';
-}
-
-.content_01 .form_inputs .form_input>div .input div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #A0C71C;
-    padding: 15px 0px;
-    min-width: 60px;
-    border-radius: 8px;
-}
-
-.content_01 .button_sign_or_login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.content_01 .button_sign_or_login button {
+    background: transparent;
     width: 100%;
-    border: 2px solid #A0C71C;
-    border-radius: 8px;
-    padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 18px; 
+    font-family: "inter";
+}
+
+.input-group img {
+    width: 24px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
-.content_01 .button_sign_or_login .line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+.error-message {
+    color: #e74c3c;
+    font-size: 16px; 
+    font-family: "inter";
+    text-align: center;
 }
 
-.button_sign_or_login #register{
-    background-color: #A0C71C;
+.btn-register {
+    background: #8cc43c;
     color: white;
-    transition: 0.3s;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px; 
+    font-family: "inter";
+    transition: background 0.3s;
 }
 
-.button_sign_or_login #login {
-    background-color: white;
-    color: #A0C71C;
-    transition: 0.3s;
+.btn-register:hover {
+    background: #75b336;
 }
 
-.button_sign_or_login #login:hover, #register:hover  {
-    box-shadow: 0px 10px 20px 0px #9fc71c77;
+.btn-login {
+    background: transparent;
+    border: 2px solid #8cc43c;
+    color: #8cc43c;
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: "inter";
+    cursor: pointer;
+    font-size: 20px; 
+    transition: background 0.3s, color 0.3s;
 }
 
-.containerCustomerContainer .button_sign_or_login .line div {
-    height: 2px;
-    width: 100%;
-    background-color: #C2C2C2;
+.btn-login:hover {
+    background: #8cc43c;
+    color: white;
 }

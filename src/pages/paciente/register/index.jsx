@@ -17,7 +17,6 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Manipulador genérico pa todos os campos
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -26,158 +25,113 @@ export default function Register() {
         }));
     };
 
-    
-const handleRegister = async (e) => {
-  e.preventDefault();
-  console.log('Dados do formulário:', formData);
-  
-  setLoading(true);
-  setError(null);
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
 
-  try {
-    const response = await ApiService.patient.register(
-      formData.cpf,
-      formData.name,
-      formData.email,
-      formData.password,
-      formData.telephone
-    );
-    
-    console.log('Sucesso:', response);
-    alert('Cadastro realizado com sucesso!');
-    
-    
-  } catch (error) {
-    console.error('Erro completo:', error);
-    setError(error.response?.data?.message || 'Erro ao cadastrar');
-  } finally {
-    setLoading(false);
-  }
-};
+        try {
+            const response = await ApiService.patient.register(
+                formData.cpf,
+                formData.name,
+                formData.email,
+                formData.password,
+                formData.telephone
+            );
+            alert('Registration successful!');
+        } catch (error) {
+            setError(error.response?.data?.message || 'Registration failed');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
-        <div className="containerCustomerContainer">
-            <div className='content_01'>
-                <div className="header">
-                    <div>
-                        <img src={logos.nutriBem} alt="Logo NutriBem" />
-                        <p>NUTRIBEM</p>
+        <div className="register-container">
+            <div className="register-box">
+                <img src={logos.nutriBem} alt="Logo NutriBem" className="logo" />
+                <p className="brand-name">NUTRIBEM</p>
+                <h2>Create your account</h2>
+
+                <form className="register-form" onSubmit={handleRegister}>
+                    <div className="form-row">
+                        <div className="input-group">
+                            <input
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Name"
+                                required
+                            />
+                            <img src={images.user} alt="User icon" />
+                        </div>
+
+                        <div className="input-group">
+                            <input
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                type="email"
+                                placeholder="E-mail"
+                                required
+                            />
+                            <img src={images.email} alt="Email icon" />
+                        </div>
                     </div>
-                    <p>Crie sua conta</p>
-                </div>
 
-                <form className="form" onSubmit={handleRegister}>
-                    <div className="form_inputs">
-                      
-                        <div className="form_input">
-                            <div>
-                                <label class="animate__animated animate__fadeIn">Nome Completo</label>
-                                <div className="input">
-                                    <input
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        type="text"
-                                        placeholder="Fulano de Tal"
-                                        required
-                                    />
-                                    <img src={images.user} alt="Ícone de usuário" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="animate__animated animate__fadeIn">E-mail</label>
-                                <div className="input">
-                                    <input
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        type="email"
-                                        placeholder="fulano@gmail.com"
-                                        required
-                                    />
-                                    <img src={images.email} alt="Ícone de email" />
-                                </div>
-                            </div>
+                    <div className="form-row">
+                        <div className="input-group">
+                            <input
+                                name="cpf"
+                                value={formData.cpf}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="CPF"
+                                required
+                            />
+                            <img src={images.user} alt="CPF icon" />
                         </div>
 
-                        <div className="form_input">
-                            <div>
-                                <label class="animate__animated animate__fadeIn">CPF</label>
-                                <div className="input">
-                                    <input
-                                        name="cpf"
-                                        value={formData.cpf}
-                                        onChange={handleChange}
-                                        type="text"
-                                        placeholder="000.000.000-00"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="animate__animated animate__fadeIn">Senha</label>
-                                <div className="input">
-                                    <input
-                                        name="password"
-                                        value={formData.password}
-                                        onChange={handleChange}
-                                        type={passwordVisible ? "text" : "password"}
-                                        placeholder="Digite sua senha"
-                                        required
-                                    />
-                                    <img 
-                                        id='eye'
-                                        src={passwordVisible ? icons.eyeOpen : icons.eyeClosed} 
-                                        alt="Mostrar senha"
-                                        onClick={() => setPasswordVisible(!passwordVisible)}
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="animate__animated animate__fadeIn">Telefone</label>
-                                <div className="input">
-                                    <input
-                                        name="telephone"
-                                        value={formData.telephone}
-                                        onChange={handleChange}
-                                        type="tel"
-                                        placeholder="(00) 00000-0000"
-                                        required
-                                    />
-                                </div>
-                            </div>
+                        <div className="input-group">
+                            <input
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                type={passwordVisible ? "text" : "password"}
+                                placeholder="Enter your password"
+                                required
+                            />
+                            <img
+                                src={passwordVisible ? icons.eyeOpen : icons.eyeClosed}
+                                alt="Toggle password"
+                                onClick={() => setPasswordVisible(!passwordVisible)}
+                            />
                         </div>
+                    </div>
+
+                    <div className="input-group">
+                        <input
+                            name="telephone"
+                            value={formData.telephone}
+                            onChange={handleChange}
+                            type="tel"
+                            placeholder="Telephone"
+                            required
+                        />
+                        <img src={images.user} alt="Phone icon" />
                     </div>
 
                     {error && <div className="error-message">{error}</div>}
 
-                    <div className="button_sign_or_login">
-                        <button 
-                            type="submit" 
-                            id="register" 
-                            disabled={loading}
-                        >
-                            {loading ? 'Cadastrando...' : 'Cadastrar'}
-                        </button>
-                        
-                        <div className="line">
-                            <div></div>
-                            <p>OU</p>
-                            <div></div>
-                        </div>
-                        
-                        <button type="button" id="login">
-                            Login
-                        </button>
-                    </div>
+                    <button type="submit" className="btn-register" disabled={loading}>
+                        {loading ? 'Registering...' : 'Sign up now'}
+                    </button>
+
+                    <button type="button" className="btn-login">
+                        Log in now
+                    </button>
                 </form>
-            </div>
-            
-            <div className='content_02'>
-                {/*imagem para decorar */}
             </div>
         </div>
     );

@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+.login-box {
+    background: #fff;
+    padding: 60px 50px; 
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 500px; 
+    text-align: center;
+}
+
+.logo-img {
+    width: 90px;
+    margin-bottom: 15px;
+}
+.brand-name
+{
+    font-size: 25px; 
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 18px;
+    font-family: "Inter";
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    
+}
+
+.login-form p {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: "Inter";
+    color: #555;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px; 
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: "Inter";
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 68%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px; 
+    height: 24px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #A0C71C;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 14px;
+    font-size: 18px; 
+    font-family: "Inter";
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.separator hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.separator span {
+    margin: 0 14px;
+    color: #888;
+    font-size: 15px;
+    font-family: "Inter";
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #A0C71C;
+    background: transparent;
+    color: #A0C71C;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Inter";
+
+}

@@ -1,50 +1,54 @@
-import '../../../stylesheet/login.css'
+import React, { useState } from 'react';
+import { icons, logos } from '../../../config/assets';
+import './login.css';
 
-export default function login(){
+export default function Login() {
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
+    return (
+        <main className="container">
+            <div className="login-box">
+                <img src={logos.nutriBem} alt="Logo NutriBem" className="logo" />
+                <p className="brand-name">NUTRIBEM</p>
+                <h5 className="subtitle">Login into your account</h5>
 
-    return(
-        <main>
-            <nav>
-                <figure>
-                    <img src="" alt="" />
-                    <h1>NUTRIBEM</h1>
-                </figure>
-
-                <h5><strong>Login into your account</strong></h5>
-
-                <section>
-                    <div>
+                <form className="login-form">
+                    <label>
                         <p>Username</p>
-                        <div>
-                            <input type="text" />
-                            <img src="" alt="" />
-                        </div>
-                    </div>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            placeholder="Enter your username" 
+                        />
+                    </label>
 
-                    <div>
+                    <label className="password-wrapper">
                         <p>Password</p>
-                        <div>
-                            <input type="text" />
-                            <img src="" alt="" />
-                        </div>
+                        <input
+                            name="password"
+                            type={passwordVisible ? "text" : "password"}
+                            placeholder="Enter your password"
+                            required
+                        />
+                        <img
+                            src={passwordVisible ? icons.eyeOpen : icons.eyeClosed}
+                            alt="Toggle password"
+                            className="toggle-password"
+                            onClick={() => setPasswordVisible(!passwordVisible)}
+                        />
+                    </label>
+
+                    <button type="submit" className="login-btn">Login now</button>
+
+                    <div className="separator">
+                        <hr />
+                        <span>or</span>
+                        <hr />
                     </div>
 
-                    <button>Login now</button>
-
-                    <article>
-                        <hr />
-                        <p>or</p>
-                        <hr />
-                    </article>
-
-                    <button>Signup now</button>
-                </section>
-            </nav>
-            
-            <aside>
-                <img src="" alt="" />
-            </aside>
+                    <button type="button" className="signup-btn">Sign up now</button>
+                </form>
+            </div>
         </main>
-    )
+    );
 }
