@@ -16,7 +16,10 @@ export const images = {
   restaurant: '/src/assets/images/customer/restaurant.png',
   user: '/src/assets/images/customer/user.png', 
   youtube_2: '/src/assets/images/customer/youtube_2.png',
-  linkedin: '/src/assets/images/customer/frame.jpeg'
+  linkedin: '/src/assets/images/customer/frame.jpeg',
+  vector: '/src/assets/images/customer/Vector.png',
+  coracao: '/src/assets/images/customer/coracao.png',
+  agenda: '/src/assets/images/customer/agenda (2).png'
 };
 
 export const icons = {
