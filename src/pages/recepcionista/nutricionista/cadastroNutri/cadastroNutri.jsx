@@ -4,37 +4,37 @@ import Header from '../../../../components/compRecepcionista/compRecepcionista';
 
 function CadastroNutri() {
   return (
-     <div className="container">
+     <div className="container-cadastroNutri">
       <Header />
 
-      <main className="main-content">
-        <div className="form-card">
-          <h2 className="form-title">Cadastro de Nutricionista</h2>
+      <main className="conteudo-principal-cadastroNutri">
+        <div className="cartao-formulario-cadastroNutri">
+          <h2 className="titulo-formulario-cadastroNutri">Cadastro de Nutricionista</h2>
 
-          <form className="form-grid">
-            <div className="form-group">
+          <form className="grade-formulario-cadastroNutri">
+            <div className="grupo-formulario-cadastroNutri">
               <label>Nome</label>
               <input type="text" placeholder="Digite o nome" />
             </div>
-            <div className="form-group">
+            <div className="grupo-formulario-cadastroNutri">
               <label>Email</label>
               <input type="email" placeholder="Digite o email" />
             </div>
-            <div className="form-group">
+            <div className="grupo-formulario-cadastroNutri">
               <label>Senha</label>
               <input type="password" placeholder="Digite a senha" />
             </div>
-            <div className="form-group">
+            <div className="grupo-formulario-cadastroNutri">
               <label>Telefone</label>
               <input type="text" placeholder="Digite o telefone" />
             </div>
-            <div className="form-group full-width">
+            <div className="grupo-formulario-cadastroNutri full-width">
               <label>CRM</label>
               <input type="text" placeholder="Digite o CRM" />
             </div>
 
-            <div className="form-group full-width">
-              <button type="submit" className="submit-btn">
+            <div className="grupo-formulario-cadastroNutri full-width">
+              <button type="submit" className="botao-submit-cadastroNutri">
                 Cadastrar Nutricionista
               </button>
             </div>

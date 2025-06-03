@@ -1,17 +1,16 @@
-.container {
+.container-cadastroPaciente {
   display: flex;
   height: 100vh;
 }
 
-.main-content {
+.main-content-cadastroPaciente {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
 }
 
-.form-card {
+.form-card-cadastroPaciente {
   background: #fff;
   padding: 60px;
   border-radius: 8px;
@@ -19,7 +18,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-title {
+.form-title-cadastroPaciente {
   margin-bottom: 30px;
   font-size: 30px;
   font-family: "inter";
@@ -27,25 +26,25 @@
   color: #333;
 }
 
-.form-grid {
+.form-grid-cadastroPaciente {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.form-group {
+.form-group-cadastroPaciente {
   display: flex;
   flex-direction: column;
 }
 
-.form-group label {
+.form-group-cadastroPaciente label {
   margin-bottom: 6px;
   color: #333;
   font-size: 14px;
   font-family: "inter";
 }
 
-.form-group input {
+.form-group-cadastroPaciente input {
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -53,11 +52,11 @@
   font-family: "inter";
 }
 
-.full-width {
+.full-width-cadastroPaciente {
   grid-column: 1 / -1;
 }
 
-.submit-btn {
+.submit-btn-cadastroPaciente {
   width: 100%;
   padding: 12px;
   background-color: #A0C71C;
@@ -70,6 +69,6 @@
   font-family: "inter";
 }
 
-.submit-btn:hover {
+.submit-btn-cadastroPaciente:hover {
   background-color: #8fb816;
 }

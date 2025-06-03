@@ -2,27 +2,26 @@ import React from 'react';
 import './listaNutris.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
 
-
 function ListaNutricionistas() {
     return (
-        <div className="page-container">
+        <div className="container-listaNutri">
             <Header />
-            <main className="main-content">
+            <main className="conteudo-principal-listaNutri">
 
-                <div className="form-container">
-                    <h2 className="form-title">Lista de Nutricionistas</h2>
+                <div className="cartao-formulario-listaNutri">
+                    <h2 className="titulo-formulario-listaNutri">Lista de Nutricionistas</h2>
 
-                    <div className="search-bar">
+                    <div className="barra-pesquisa-listaNutri">
                         <input
                             type="text"
                             placeholder="Informe o nome da Nutricionista"
-                            className="input-field"
+                            className="campo-input-listaNutri"
                         />
-                        <button className="search-button">🔍</button>
+                        <button className="botao-pesquisa-listaNutri">🔍</button>
                     </div>
 
-                    <div className="table-container">
-                        <table>
+                    <div className="tabela-container-listaNutri">
+                        <table className="tabela-listaNutri">
                             <thead>
                                 <tr>
                                     <th>NOME</th>

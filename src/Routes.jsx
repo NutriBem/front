@@ -17,6 +17,7 @@ import PatientList from './pages/recepcionista/cliente/listaPacientes/listaPacie
 import HistoricoPacienteRep from './pages/recepcionista/cliente/historicoPaciente/historicoPaciente'
 
 //Recepcionista - Áreas padrão
+import HomeRecepcionista from './pages/recepcionista/homes/homeRecepcionista/homeRecepcionista'
 
 //Nutricionista
 import Nutritionist from './pages/nutricionista/paginaNutri'
@@ -46,7 +47,7 @@ export default function Routess() {
         <Route path='/patientHistorical' element={<HistoricoPacienteRep/>}/>
 
         {/*Área Recepcionista*/}
-
+        <Route path='/homeRecepcionist' element={<HomeRecepcionista/>}/>
 
         {/*Página Nutricionista*/}
         <Route path='/nutritionist' element={<Nutritionist/>}/>

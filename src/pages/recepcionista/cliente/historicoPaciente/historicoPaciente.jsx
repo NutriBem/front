@@ -4,24 +4,27 @@ import Header from '../../../../components/compRecepcionista/compRecepcionista';
 
 function HistoricoPaciente() {
   return (
-    <div className="page-container">
+    <div className="page-container-historicoPaciente">
       <Header />
       
-      <main className="content">
-        <h2>Histórico de Agendamentos</h2>
+      <main className="content-historicoPaciente">
+        <h2 className="title-historicoPaciente">Histórico de Agendamentos</h2>
 
-        <div className="filters">
-          <input type="text" placeholder="Digite o nome do paciente" />
-          <button className="search-btn">🔍</button>
+        <div className="filters-historicoPaciente">
+          <input 
+            type="text" 
+            placeholder="Digite o nome do paciente" 
+            className="input-historicoPaciente" 
+          />
+          <button className="search-btn-historicoPaciente">🔍</button>
         </div>
 
-        <div className="appointments">
+        <div className="appointments-historicoPaciente">
           {/* Nenhum dado exibido pois o banco está vazio */}
         </div>
       </main>
     </div>
   );
 }
-
 
 export default HistoricoPaciente;

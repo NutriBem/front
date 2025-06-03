@@ -1,55 +1,54 @@
-.container {
+.container-cadastroNutri {
   display: flex;
   height: 100vh;
 }
 
-.main-content {
+.conteudo-principal-cadastroNutri {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
 }
 
-.form-card {
+.cartao-formulario-cadastroNutri {
   background: #fff;
-  padding: 60px;
-  border-radius: 8px;
-  width: 1000px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 80px; 
+  border-radius: 10px;
+  width: 1100px; 
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
-.form-title {
-  margin-bottom: 30px;
-  font-size: 30px;
+.titulo-formulario-cadastroNutri {
+  margin-bottom: 40px; 
+  font-size: 36px; 
   font-family: "inter";
-  font-weight: 600;
+  font-weight: 700;
   color: #333;
 }
 
-.form-grid {
+.grade-formulario-cadastroNutri {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 25px;
 }
 
-.form-group {
+.grupo-formulario-cadastroNutri {
   display: flex;
   flex-direction: column;
 }
 
-.form-group label {
-  margin-bottom: 6px;
+.grupo-formulario-cadastroNutri label {
+  margin-bottom: 8px;
   color: #333;
-  font-size: 14px;
+  font-size: 16px; 
   font-family: "inter";
 }
 
-.form-group input {
-  padding: 10px;
-  border-radius: 4px;
+.grupo-formulario-cadastroNutri input {
+  padding: 12px; 
+  border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 14px;
+  font-size: 16px; 
   font-family: "inter";
 }
 
@@ -57,19 +56,20 @@
   grid-column: 1 / -1;
 }
 
-.submit-btn {
+.botao-submit-cadastroNutri {
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   background-color: #A0C71C;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "inter";
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
+.botao-submit-cadastroNutri:hover {
   background-color: #8fb816;
 }

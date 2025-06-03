@@ -3,30 +3,30 @@ import './compRecepcionista.css';
 
 function Sidebar() {
   return (
-    <header className="sidebar">
-      <div className="logo">Dashboard</div>
-      <nav>
-        <div className="menu-section">
-          <div className="menu-title">Nutrólogo</div>
-          <ul>
-            <li>Adicionar Nutricionista</li>
-            <li>Lista de Nutricionistas</li>
-            <li>Histórico de agendamentos</li>
+    <header className="sidebar-admin">
+      <div className="sidebar-admin__logo">Dashboard</div>
+      <nav className="sidebar-admin__nav">
+        <div className="sidebar-admin__menu-section">
+          <div className="sidebar-admin__menu-title">Nutrólogo</div>
+          <ul className="sidebar-admin__menu-list">
+            <li className="sidebar-admin__menu-item">Adicionar nutricionista</li>
+            <li className="sidebar-admin__menu-item">Lista de nutricionistas</li>
+            <li className="sidebar-admin__menu-item">Histórico de agendamentos</li>
           </ul>
         </div>
 
-        <div className="menu-section">
-          <div className="menu-title">Pacientes</div>
-          <ul>
-            <li>Adicionar Paciente</li>
-            <li>Lista de Paciente</li>
-            <li>Agendar consulta</li>
-            <li>Histórico de agendamentos</li>
+        <div className="sidebar-admin__menu-section">
+          <div className="sidebar-admin__menu-title">Pacientes</div>
+          <ul className="sidebar-admin__menu-list">
+            <li className="sidebar-admin__menu-item">Adicionar paciente</li>
+            <li className="sidebar-admin__menu-item">Lista de pacientes</li>
+            <li className="sidebar-admin__menu-item">Agendar consulta</li>
+            <li className="sidebar-admin__menu-item">Histórico de agendamentos</li>
           </ul>
         </div>
 
-        <div className="menu-section">
-          <div className="menu-title">Calendário</div>
+        <div className="sidebar-admin__menu-section">
+          <div className="sidebar-admin__menu-title">Calendário</div>
         </div>
       </nav>
     </header>

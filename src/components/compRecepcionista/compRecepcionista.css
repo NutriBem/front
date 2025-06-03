@@ -1,81 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  display: flex;
-  background-color: #f0f2f5;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 260px;
+.sidebar-admin {
+  width: 250px;
   height: 100vh;
   background-color: #ffffff;
-  color: #333;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter', sans-serif;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+  border-radius: 0 16px 16px 0;
 }
 
-.sidebar .logo {
-  font-size: 22px;
+.sidebar-admin__logo {
+  padding: 24px 16px;
+  font-size: 25px;
   font-family: "inter";
-  font-weight: 700;
-  margin-bottom: 35px;
-  color: #A0C71C;
-}
-
-.sidebar .account {
-  font-size: 14px;
-  font-family: "inter";
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.sidebar .menu-section {
-  margin-bottom: 25px;
-}
-
-.sidebar .menu-title {
-  font-size: 13px;
-  font-family: "inter";
-  font-weight: 600;
-  padding: 5px;
-  color: #fff;
-  background-color: #A0C71C;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-family: "inter";
-  gap: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s, font-weight 0.3s, color 0.3s;
-  color: #333;
-}
-
-.sidebar li:hover {
-  background-color: #f0f2f5;
-  font-weight: 600;
-  color: #A0C71C;
-} 
-
-.sidebar li i {
-  width: 18px;
   text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+.sidebar-admin__menu-section {
+  margin-bottom: 20px;
+}
+
+.sidebar-admin__menu-title {
+  background-color: #a6ce39;
+  color: white;
+  padding: 16px 0;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "inter";
+  text-align: center;
+}
+
+.sidebar-admin__menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.sidebar-admin__menu-item {
+  padding: 14px 20px;
+  font-size: 16px;
+  font-family: "inter";
+
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar-admin__menu-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-admin__menu-item:hover {
+  background-color: #e5f3c9;
+  color: #5c8d10;
 }
