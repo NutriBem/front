@@ -1,6 +1,6 @@
 import React from 'react';
-import './cadastroNutri.css';
-import Header from '../../../components/compRecepcionista/compRecepcionista';
+import './cadastroPaciente.css';
+import Header from '../../../../components/compRecepcionista/compRecepcionista';
 
 function CadastroNutri() {
   return (
@@ -9,7 +9,7 @@ function CadastroNutri() {
 
       <main className="main-content">
         <div className="form-card">
-          <h2 className="form-title">Cadastro de Nutricionista</h2>
+          <h2 className="form-title">Cadastrar Paciente</h2>
 
           <form className="form-grid">
             <div className="form-group">
@@ -29,13 +29,13 @@ function CadastroNutri() {
               <input type="text" placeholder="Digite o telefone" />
             </div>
             <div className="form-group full-width">
-              <label>CRM</label>
-              <input type="text" placeholder="Digite o CRM" />
+              <label>CPF</label>
+              <input type="text" placeholder="Digite o CPF" />
             </div>
 
             <div className="form-group full-width">
               <button type="submit" className="submit-btn">
-                Cadastrar Nutricionista
+                Cadastrar Paciente
               </button>
             </div>
           </form>

@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //user
-import Register from './pages/customer/register'
+import Register from './pages/paciente/register/index'
 import Home from './pages/home'
-import Login from './pages/customer/login'
+import Login from './pages/paciente/login/index'
 import Profile from './pages/paciente/meuPerfil/meuPerfil'
 import HistoricalPatient from './pages/paciente/historicoPaciente/historicoPaciente'
 
 //Recepcionista - Nutrólogo
-import NutriRegistration from './pages/recepcionista/cadastroNutri/cadastroNutri'
-import NutriList from './pages/recepcionista/listaNutris/listaNutris'
-import HistoricalNutriRep from './pages/recepcionista/historicoNutri/historicoNutri'
+import NutriRegistration from './pages/recepcionista/nutricionista/cadastroNutri/cadastroNutri'
+import NutriList from './pages/recepcionista/nutricionista/listaNutris/listaNutris'
+import HistoricalNutriRep from './pages/recepcionista/nutricionista/historicoNutri/historicoNutri'
 
 //Recepcionista - Paciente
-import PatientRegister from './pages/recepcionista/cadastroPaciente/cadastroPaciente'
-import PatientList from './pages/recepcionista/listaPacientes/listaPacientes'
-import HistoricoPacienteRep from './pages/recepcionista/historicoPaciente/historicoPaciente'
+import PatientRegister from './pages/recepcionista/cliente/cadastroPaciente/cadastroPaciente'
+import PatientList from './pages/recepcionista/cliente/listaPacientes/listaPacientes'
+import HistoricoPacienteRep from './pages/recepcionista/cliente/historicoPaciente/historicoPaciente'
 
 //Recepcionista - Áreas padrão
 

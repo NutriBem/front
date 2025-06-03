@@ -13,7 +13,7 @@ function CabecalhoUser() {
 
             <div className="icones">
                 <img src={images.instagram_2} alt="Instagram" />
-                <img src={images.instagram_2} alt="LinkedIn" />
+                <img src={images.linkedin} alt="LinkedIn" />
                 <img src={images.youtube_2} alt="YouTube" />
             </div>
 

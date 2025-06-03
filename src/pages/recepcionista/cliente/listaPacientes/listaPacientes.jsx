@@ -1,6 +1,6 @@
 import React from 'react';
 import './listaPacientes.css';
-import Header from '../../../components/compRecepcionista/compRecepcionista';
+import Header from '../../../../components/compRecepcionista/compRecepcionista';
 
 
 function ListaNutricionistas() {

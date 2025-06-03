@@ -15,7 +15,8 @@ export const images = {
   password: '/src/assets/images/customer/password.png',
   restaurant: '/src/assets/images/customer/restaurant.png',
   user: '/src/assets/images/customer/user.png', 
-  youtube_2: '/src/assets/images/customer/youtube_2.png'
+  youtube_2: '/src/assets/images/customer/youtube_2.png',
+  linkedin: '/src/assets/images/customer/frame.jpeg'
 };
 
 export const icons = {
