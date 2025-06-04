@@ -1,8 +1,11 @@
 import './home.css';
 import './home.js';
 import { images, logos } from '../../config/assets'
+import { useState } from 'react';
 
 export default function Home() {
+    const [visibility, setVisibility] = useState(false);
+
     return (
         <div className="container_home">
             <div className="header">
@@ -99,9 +102,9 @@ export default function Home() {
                             <li>
                                 <div  className="estado-item">
                                     <span>Menos que 18,5 kg/m² <span  className="amarelo">ABAIXO DO PESO</span></span>
-                                    <button  className="toggle-btn">+</button>
+                                    <button  className="toggle-btn" onClick={() => setVisibility(!visibility)}>+</button>
                                 </div>
-                                <div  className="info">
+                                <div style={{display: visibility ? "flex" : "none"}} className="info">
 
                                     <strong>Você está com o PESO BAIXO do recomendado.Atenção!</strong>
                                     <br></br>Procure sua Unidade de Saúde para uma avaliação integral de sua saúde e,

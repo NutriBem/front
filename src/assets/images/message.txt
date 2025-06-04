@@ -1,0 +1,62 @@
+1. Qual é o objetivo de uso do protocolo NAT? E como ele funciona?
+R: O NAT foi criado para resolver a escassez de endereços IPv4 públicos. Funciona fazendo a tradução dos endereços IP da rede local para a Internet. O NAT é comumente usado no gateway padrão da rede.
+
+2. Como ocorre o procedimento de um equipamento que necessita enviar um pacote para a Internet? Descreva cada etapa.
+R:
+    1. Um dispositivo local (ex: 192.168.5.2) envia o pacote para o gateway padrão (ex: 192.168.5.4).
+    2. O roteador NAT faz a tradução, substituindo o IP de origem (192.168.5.2) pelo IP público do roteador (ex: 200.30.20.1).
+    3. Registra esse mapeamento em uma tabela NAT.
+    4. O pacote, agora com o IP público, segue para o servidor na Internet.
+
+
+3. CONFORME SABEMOS, SÓ TEMOS UM ENDEREÇO PÚBLICO PARA SER UTILIZADO PELA REDE INTERNA. CASO ACONTEÇA DE VÁRIAS MÁQUINAS TEREM DE ACESSAR A INTERNET USANDO NAT, O QUE VAI ACONTECER?
+
+R = Se várias máquinas acessarem a Internet usando NAT com um único IP público, o PAT (tradução de porta) assegura que cada conexão seja única, mapeando IPs privados para o mesmo IP público, mas com portas diferentes, para evitar conflitos e permite acesso simultâneo.
+
+4. QUAL A FUNÇÃO DE UTILIZAR O PAT (TRADUÇÃO DE ENDEREÇOS DE PORTA)?
+
+R: Utilizado quando temos um único endereço público e por ele conseguimos fazer sair várias máquinas (1:N). Este processo é possível, uma vez que o equipamento que faz PAT utiliza portas que identificam cada pedido das máquinas locais para o exterior.
+
+5. COMO FUNCIONA O REDIRECIONAMENTO DE PORTA, UTILIZADA PELO PROTOCOLO NAT?
+
+R = Funciona direcionando um pacote para uma porta específica de um roteador, realizando uma conexão para um dispositivo específico solicitado.
+
+
+6. COMPLETE AS LACUNAS:
+O PROTOCOLO NAT FUNCIONA UNICAMENTE NA CAMADA de rede, POIS TRADUZ UM ENDEREÇO LÓGICO PARA OUTRO. JÁ O PROTOCOLO PAT ATUA transporte e rede.
+
+7. QUAL A FUNÇÃO DO GATEWAY?
+R = Função básica é permitir a comunicação entre redes diferentes (exemplo: LAN e Internet). No contexto de NAT/PAT, o gateway (roteador) atua traduzindo endereços IP privados em públicos e gerenciando portas para múltiplos dispositivos.
+
+
+8. UM FUNCIONÁRIO DA EMPRESA "A", CUJA REDE É UMA LAN, ENVIOU UM PACOTE COM UM CONVITE, DIRETAMENTE, PARA O EQUIPAMENTO DE UM AMIGO, QUE É FUNCIONÁRIO NA EMPRESA "B", EM OUTRA REDE LAN. ANALISE A SITUAÇÃO E DESCREVA O QUE ACONTECEU. JUSTIFIQUE
+R = O envio falha, porque IPs privados de redes LAN diferentes não são acessíveis diretamente. Para funcionar, o pacote deveria passar pelos gateways (roteadores NAT) de ambas as empresas, que traduziriam os endereços privados em públicos, permitindo o roteamento pela Internet.
+
+
+9. QUAL A FUNÇÃO DO IP PÚBLICO, QUE FAZ USO DO "REDIRECIONAMENTO" DE PORTAS?
+R = O IP público possibilita o Port Forwarding ao servir como endereço único para a rede na Internet. Quando combinado com o redirecionamento de portas, permite que conexões externas acessem serviços específicos dentro da rede local.
+
+
+10. NO QUE CONSISTE REALIZAR UM ROTEAMENTO? E QUAL A SUA IMPORTÂNCIA?
+R = Roteamento é o processo de localizar e selecionar o melhor caminho a partir da origem até o destino. É importante porque cria eficiência na comunicação de rede, gerencia o tráfego de dados e evita congestionamento da rede.
+
+
+11. DEFINA O QUE É UM ROTEADOR E QUAL A SUA FUNÇÃO?
+R = Roteador é um equipamento da camada de rede, que permite que vários dispositivos se conectem à Internet usando a mesma conexão. Utilizados para analisar um pacote e tomar uma decisão à procura do melhor caminho, baseado no destino IP.
+
+12. CITE AS 3 FUNÇÕES DE UM ROTEADOR.
+R =
+    • GERENCIAR O TRÁFEGO "ENTRE REDES" E DETERMINAR O MELHOR CAMINHO. ANALISANDO MÉTRICAS DE REDE, TAIS COMO; ATRASO, CAPACIDADE E VELOCIDADE.
+    • ENCAMINHAR PACOTES DE DADOS. DE UM DISPOSITIVO AO OUTRO. NA MESMA REDE OU EM REDES DIFERENTES.
+    • BALENCEAMENTO DE CARGA. ENVIA PACOTES POR VÁRIOS CAMINHOS / CRIA REDUNDÂNCIA E GERENCIA O VOLUME DE TRÁFEGO.
+
+
+13. QUANDO SE REALIZA UM ROTEAMENTO, QUAIS ITENS SÃO NECESSÁRIOS PARA QUE O ROTEAMENTO ACONTEÇA?
+R: É necessário: o endereço de destino para onde o tráfego seguirá e qual é a direção, ou seja, o caminho. O que é realizado através da análise dos endereços IP's.
+
+14. QUAIS OS DOIS TIPOS DE ROTEAMENTO EXISTENTE? DEFINA CADA UM DELES.
+Roteamento Estático: Configuração manual das rotas por um administrador. Tem como características: rotas fixas (não mudam automaticamente), é ideal para redes pequenas ou onde a topologia é estável. Problemas: congestionamento da rede, diminui a flexibilidade e performance limitada.
+Roteamento Dinâmico: O router cria e atualiza tabelas de roteamento em tempo de execução (automaticamente), de acordo com as condições da rede. Adapta-se a falhas ou congestionamentos como: volume de tráfego, largura de banda e falha de rede. E usa algoritmos para encontrar o caminho mais eficiente.
+
+
+
