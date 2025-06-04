@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 14px 24px; /* aumentado de 10px 20px */
     background-color: #f8f9fa; 
     font-family: "inter";
 }
@@ -14,15 +14,15 @@
 }
 
 .logo-titulo img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
 }
 
 .titulo {
     font-weight: bold;
     font-family: "inter";
     color: #2c2c2c;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .icones {
@@ -32,8 +32,8 @@
 }
 
 .icones img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -51,12 +51,12 @@
 #login {
     background-color: #a7d64b;
     border: none;
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 20px;
     color: white;
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "inter";
     transition: background-color 0.3s ease;
 }
@@ -68,6 +68,6 @@
 .login-agendamento p {
     margin: 0;
     color: #333;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "inter";
 }

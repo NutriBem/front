@@ -4,6 +4,7 @@ import Register from './pages/paciente/register/index'
 import Home from './pages/home'
 import Login from './pages/paciente/login/index'
 import Profile from './pages/paciente/meuPerfil/meuPerfil'
+import Agenda from './pages/paciente/agendamentoConsulta/agendamentoConsulta'
 import HistoricalPatient from './pages/paciente/historicoPaciente/historicoPaciente'
 
 //Recepcionista - Nutrólogo
@@ -35,6 +36,7 @@ export default function Routess() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/appointment'element={<Agenda/>}/>
         <Route path='/historicalConsults' element={<HistoricalPatient/>}/>
         
         {/*Área Recepcionista - Nutrólogo*/}

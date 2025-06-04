@@ -1,0 +1,169 @@
+.agendaConsulta-container {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+.agendaConsulta-wrapper {
+    padding: 20px 40px;
+}
+
+.agendaConsulta-header {
+    align-items: center;
+    background: linear-gradient(to right, #a7d64b, #3e9244);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.agendaConsulta-header h2{
+    color: #fff;
+}
+
+.agendaConsulta-select-mes {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-family: "inter";
+}
+
+.agendaConsulta-select-ano {
+    padding: 5px;
+    border-radius: 5px;
+    font-family: "inter";
+    font-size: 14px;
+}
+
+.agendaConsulta-instrucao {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "inter";
+}
+
+.agendaConsulta-controle-mes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    width: 58%;
+
+}
+
+.agendaConsulta-controle-ano label{
+    font-family: "inter";
+}
+
+.agendaConsulta-content {
+    display: flex;
+    gap: 20px;
+}
+
+.agendaConsulta-calendario {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    
+}
+
+.agendaConsulta-dias {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    
+}
+
+.agendaConsulta-dia {
+    text-align: center;
+    min-width: 100px;
+}
+
+.agendaConsulta-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    
+}
+
+.agendaConsulta-horario {
+    background-color: white;
+    border: 1px solid #a7d64b;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "inter";
+    transition: background 0.3s ease;
+}
+
+.agendaConsulta-horario:hover,
+.agendaConsulta-horario.selected {
+    background-color: #a7d64b;
+    color: white;
+}
+
+.agendaConsulta-arrow {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-family: "inter";
+    cursor: pointer;
+    color: #3e9244;
+}
+
+.agendaConsulta-resumo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.agendaConsulta-resumo label{
+    font-family: "inter";
+    font-weight: 600;
+}
+
+.agendaConsulta-select-nutricionista {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: "inter";
+}
+
+.agendaConsulta-endereco p {
+    margin: 4px 0;
+    font-size: 14px;
+    font-family: "inter";
+    color: #333;
+}
+
+.agendaConsulta-endereco strong{
+    font-family: "inter";
+    font-weight: 800;
+}
+
+.agendaConsulta-btn-agendar {
+    padding: 10px;
+    background-color: #a7d64b;
+    color: white;
+    font-weight: bold;
+    font-family: "inter";
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.agendaConsulta-btn-agendar:hover {
+    background-color: #8cc43c;
+}
