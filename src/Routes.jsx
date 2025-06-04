@@ -16,6 +16,7 @@ import HistoricalNutriRep from './pages/recepcionista/nutricionista/historicoNut
 import PatientRegister from './pages/recepcionista/cliente/cadastroPaciente/cadastroPaciente'
 import PatientList from './pages/recepcionista/cliente/listaPacientes/listaPacientes'
 import HistoricoPacienteRep from './pages/recepcionista/cliente/historicoPaciente/historicoPaciente'
+import AgendaRecepcionista from './pages/recepcionista/cliente/agendarConsultaPaciente/agendarConsultaPaciente'
 
 //Recepcionista - Áreas padrão
 import HomeRecepcionista from './pages/recepcionista/homes/homeRecepcionista/homeRecepcionista'
@@ -48,6 +49,7 @@ export default function Routess() {
         <Route path='/patientRegister' element={<PatientRegister/>}/>
         <Route path='/patientList' element={<PatientList/>}/> 
         <Route path='/patientHistorical' element={<HistoricoPacienteRep/>}/>
+        <Route path='/patientAppointment' element={<AgendaRecepcionista/>}/>
 
         {/*Área Recepcionista*/}
         <Route path='/homeRecepcionist' element={<HomeRecepcionista/>}/>

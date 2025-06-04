@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 24px; /* aumentado de 10px 20px */
+    padding: 14px 24px; 
     background-color: #f8f9fa; 
     font-family: "inter";
 }

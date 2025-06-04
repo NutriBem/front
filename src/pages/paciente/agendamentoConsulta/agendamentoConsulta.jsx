@@ -17,7 +17,7 @@ function AgendaConsulta() {
         const dias = [];
         const data = new Date(anoAtual, mesAtual, 1);
         while (data.getMonth() === mesAtual) {
-            const diaDaSemana = data.getDay(); // 0 = dom, 1 = seg, ..., 6 = sab
+            const diaDaSemana = data.getDay(); 
             if (diaDaSemana >= 1 && diaDaSemana <= 5) {
                 dias.push(new Date(data));
             }

@@ -1,0 +1,227 @@
+.consultaRecepcionista-body {
+  display: flex;
+}
+
+.consultaRecepcionista-container {
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.consultaRecepcionista-titulo {
+  font-size: 24px;
+}
+
+.consultaRecepcionista-controles {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.campo-busca {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-busca label{
+    font-size: 14px;
+    font-family: "inter";
+}
+
+.input-com-botao {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+.input-com-botao input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: "inter";
+}
+
+.input-com-botao button {
+  background-color: #ccc;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.tabela-calendario {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;  
+  padding-right: 10px;
+}
+
+.linha-horarios {
+  display: flex;
+  background-color: #a8d432;
+  color: white;
+  font-weight: bold;
+  padding: 10px 0;
+  gap: 9px;
+  border-radius: 8px 8px 0 0;
+}
+
+.celula-dia-vazia {
+  width: 140px;
+}
+
+.celula-horario {
+  width:80px;
+  font-family: "inter";
+  text-align: center;
+}
+
+.linha-dia {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+
+}
+
+.celula-dia {
+  width: 140px;
+  padding-left: 10px;
+  font-weight: 500;
+  color: #444;
+}
+
+.bolinha-horario {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.verde {
+  background-color: #00cc66;
+}
+
+.vermelha {
+  background-color: #ff4444;
+}
+
+.consultaRecepcionista-btn-agendar {
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: #a8d432;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  font-family: "inter";
+}
+
+.consultaRecepcionista-filtros-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.consultaRecepcionista-filtros-footer .filtros {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.consultaRecepcionista-filtros-footer select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: "inter";
+}
+
+.consultaRecepcionista-btn-agendar {
+  margin-right: 20px;
+}
+
+.popupBusca-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popupBusca-container {
+  background-color: white;
+  width: 650px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.popupBusca-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popupBusca-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+}
+
+.popupBusca-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: "inter";
+}
+
+.popupBusca-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popupBusca-table th,
+.popupBusca-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-family: "inter";
+}
+
+.popupBusca-table th {
+  background-color: #A8CE3A;
+  color: white;
+  font-family: "inter";
+}
+
+.consultaRecepcionista-btnIcone {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
