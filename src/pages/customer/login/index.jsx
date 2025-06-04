@@ -1,9 +1,9 @@
 import '../../../stylesheet/login.css'
 
-export default function login(){
+export default function login() {
 
 
-    return(
+    return (
         <main>
             <nav>
                 <figure>
@@ -41,7 +41,7 @@ export default function login(){
                     <button>Signup now</button>
                 </section>
             </nav>
-            
+
             <aside>
                 <img src="" alt="" />
             </aside>
