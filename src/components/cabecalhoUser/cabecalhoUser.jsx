@@ -1,15 +1,18 @@
 import React from "react";
 import './cabecalhoUser.css';
 import { images, logos } from "../../config/assets";
+import { Link } from "react-router-dom";
 
 function CabecalhoUser() {
     return (
         <header className="cabecalho-user">
 
-            <div className="logo-titulo">
-                <img src={logos.nutriBem} alt="Logo Nutribem" />
-                <p className="titulo">NUTRIBEM</p>
-            </div>
+            <Link to={"/"}>
+                <div className="logo-titulo">
+                    <img src={logos.nutriBem} alt="Logo Nutribem" />
+                    <p className="titulo">NUTRIBEM</p>
+                </div>
+            </Link>
 
             <div className="icones">
                 <img src={images.instagram_2} alt="Instagram" />
@@ -18,8 +21,8 @@ function CabecalhoUser() {
             </div>
 
             <div className="login-agendamento">
-                <button id="login">Login</button>
-                <p>Agendamentos</p>
+                <Link to={"/login"}><button id="login">Login</button></Link>
+                <Link to={"/appointment"}><p>Agendamentos</p></Link>
             </div>
 
         </header>

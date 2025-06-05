@@ -3,6 +3,7 @@ import ApiService from '../../../connection/ApiService';
 import { images, icons, logos } from '../../../config/assets'
 import './style.css';
 import 'animate.css';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     const [formData, setFormData] = useState({
@@ -127,10 +128,11 @@ export default function Register() {
                     <button type="submit" className="btn-register" disabled={loading}>
                         {loading ? 'Registering...' : 'Sign up now'}
                     </button>
-
-                    <button type="button" className="btn-login">
+                
+                    <Link to={"/login"}><button type="button" className="btn-login">
                         Log in now
-                    </button>
+                    </button></Link>
+                    
                 </form>
             </div>
         </div>

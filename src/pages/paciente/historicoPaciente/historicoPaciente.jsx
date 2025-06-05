@@ -1,6 +1,7 @@
 import React from 'react';
 import './historicoPaciente.css';
 import Header from '../../../components/cabecalhoUser/cabecalhoUser'
+import { Link } from 'react-router-dom';
 function HistoricoConsultas() {
   return (
     <div className="page">
@@ -15,7 +16,7 @@ function HistoricoConsultas() {
       </main>
 
       <footer>
-        <a href="#" className="btn-voltar">Voltar para área do paciente</a>
+        <Link to={"/profile"}><a href="#" className="btn-voltar">Voltar para área do paciente</a></Link>
       </footer>
       
     </div>

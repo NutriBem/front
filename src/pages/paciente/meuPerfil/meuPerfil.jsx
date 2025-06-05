@@ -1,6 +1,7 @@
 import React from "react";
 import './meuPerfil.css';
 import Header from '../../../components/cabecalhoUser/cabecalhoUser';
+import { Link } from "react-router-dom";
 
 function MeuPerfil() {
     return (
@@ -16,7 +17,8 @@ function MeuPerfil() {
                 </div>
 
                 <div className="botoes-perfil">
-                    <button className="btn-perfil">Ver meu histórico</button>
+                    <Link to={"/historicalConsults"}><button className="btn-perfil">Ver meu histórico</button></Link>
+                    
                     <button className="btn-editar">Editar</button>
                 </div>
 

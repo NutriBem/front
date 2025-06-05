@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { icons, logos } from '../../../config/assets';
 import './login.css';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -45,8 +46,9 @@ export default function Login() {
                         <span>or</span>
                         <hr />
                     </div>
-
-                    <button type="button" className="signup-btn">Sign up now</button>
+                    
+                    <Link to={"/register"}><button type="button" className="signup-btn">Sign up now</button></Link>
+                    
                 </form>
             </div>
         </main>
