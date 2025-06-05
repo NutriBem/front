@@ -451,3 +451,101 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 1024px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .carrossel img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carrossel h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .tratamentoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+
+  .card img {
+    width: 100px;
+    height: auto;
+  }
+
+  .calculo_imc {
+    padding: 20px;
+  }
+
+  .imc_container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calcular_imc,
+  .imc_estado {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .inputs input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .timeline svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 24px;
+  }
+
+  .titulo2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .header .logo img {
+    width: 100px;
+  }
+
+  .header .icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .calcular_imc h3,
+  .imc_estado h3 {
+    font-size: 18px;
+  }
+
+  .footer-container {
+    padding: 20px;
+  }
+
+  .footer-logo-social .logo {
+    font-size: 22px;
+  }
+
+  button,
+  .toggle-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
