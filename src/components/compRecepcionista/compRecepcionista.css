@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
+* {
+  text-decoration: none;
+}
+
 .sidebar-admin {
   width: 250px;
   height: 100vh;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
   border-radius: 0 16px 16px 0;
 }
@@ -20,7 +23,11 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-
+.sidebar-admin__logo-link {
+  color: #000;
+  font-family: "inter";
+  font-weight: 700;
+}
 
 .sidebar-admin__menu-section {
   margin-bottom: 20px;
@@ -46,10 +53,9 @@
 }
 
 .sidebar-admin__menu-item {
-  padding: 14px 20px;
+  padding: 14px 16px;
   font-size: 16px;
-  font-family: "inter";
-
+  color: #000;
   border-bottom: 1px solid #eeeeee;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -57,6 +63,13 @@
 
 .sidebar-admin__menu-item:last-child {
   border-bottom: none;
+  
+}
+
+.sidebar-admin__menu-link {
+  color: #000;
+  text-decoration: none;
+  font-family: "inter";
 }
 
 .sidebar-admin__menu-item:hover {
