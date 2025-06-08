@@ -197,17 +197,17 @@ export default function Home() {
                 <img src={images.passo} />
             </div>
 
-            <div class="footer-container">
-                <div class="footer-logo-social">
-                    <h2 class="logo">NUTRIBEM</h2>
-                    <div class="social-icons">
+            <div className="footer-container">
+                <div className="footer-logo-social">
+                    <h2 className="logo">NUTRIBEM</h2>
+                    <div className="social-icons">
                         <a href="#"><img src={images.instagram_2} /></a>
                         <a href="#"><img src={images.linkedin} /></a>
                         <a href="#"><img src={images.youtube_2} /></a>
                     </div>
                 </div>
 
-                <div class="footer-section">
+                <div className="footer-section">
                     <h3>Institucional</h3>
                     <ul>
                         <li><a href="#">Sobre nós</a></li>
@@ -216,7 +216,7 @@ export default function Home() {
                     </ul>
                 </div>
 
-                <div class="footer-section">
+                <div className="footer-section">
                     <h3>Central de Ajuda</h3>
                     <ul>
                         <li><a href="#">FAQ</a></li>
@@ -225,7 +225,7 @@ export default function Home() {
                     </ul>
                 </div>
 
-                <div class="footer-section">
+                <div className="footer-section">
                     <h3>Atendimento</h3>
                     <p><strong>Telefone:</strong> (11) 91234-5678</p>
                     <p><strong>E-mail:</strong> nutribem@outlook.com.br</p>

@@ -1,25 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { icons, logos } from '../../../config/assets';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar';
+import { toast } from 'react-toastify';
+import ApiService from '../../../connection/ApiService';
 
 export default function Login() {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [erro, setErro] = useState('');
+    const [carregando, setCarregando] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const ref = useRef();
+    const navigate = useNavigate();
+
+    async function LoginUser(e) {
+        e.preventDefault()
+        ref.current.continuousStart()
+        setCarregando(true)
+
+        try {
+            const response = await ApiService.person.loginUser(email, senha)
+
+            if (response && response.data) {
+                const token = response.data.data
+
+                if(token){
+                    localStorage.setItem("user-token", token)
+                    localStorage.setItem("user-email", email)
+
+                    toast.success("sdklmdsk");
+                    console.log("porfa vai ^^")
+
+                    setTimeout(() => {
+                    navigate('/')
+                    }, 3000)
+                } else{
+                    console.log("")
+                    console.log("Resposta API IVALIDA PORRA!!!!!")
+                throw new Error("Resposta API IVALIDA PORRA!!!!!")
+                }
+               
+            } else{
+                console.log("erro do else")
+                throw new Error("Resposta da Não tem nada de dados")
+            }
+
+           
+        } catch (error) {
+            ref.current.complete();
+            setCarregando(false)
+            toast.error(error.message)
+
+            console.log(error.message)
+            if (error.response?.status === 400) {
+                setErro(err.response.data.erro);
+            } else {
+                toast.error("Usuário não logado, tente novamente");
+            }
+        }
+    }
 
     return (
         <main className="container">
+             <LoadingBar color="#f11946" ref={ref} />
             <div className="login-box">
                 <img src={logos.nutriBem} alt="Logo NutriBem" className="logo" />
                 <p className="brand-name">NUTRIBEM</p>
                 <h5 className="subtitle">Login into your account</h5>
 
-                <form className="login-form">
+                <form className="login-form" onSubmit={LoginUser}>
                     <label>
-                        <p>Username</p>
+                        <p>Email</p>
                         <input 
                             type="text" 
-                            name="username" 
-                            placeholder="Enter your username" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your Email"
+                            required 
                         />
                     </label>
 
@@ -28,6 +88,8 @@ export default function Login() {
                         <input
                             name="password"
                             type={passwordVisible ? "text" : "password"}
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
                             placeholder="Enter your password"
                             required
                         />
@@ -39,7 +101,11 @@ export default function Login() {
                         />
                     </label>
 
-                    <button type="submit" className="login-btn">Login now</button>
+                    {erro && <div className='error-message'>{erro}</div>}
+
+                    <button type="submit" className="login-btn" disabled={carregando}>
+                        {carregando ? 'Loading...' : 'Login now'}
+                    </button>
 
                     <div className="separator">
                         <hr />
@@ -47,7 +113,9 @@ export default function Login() {
                         <hr />
                     </div>
                     
-                    <Link to={"/register"}><button type="button" className="signup-btn">Sign up now</button></Link>
+                    <Link to={"/register"}>
+                    <button type="button" className="signup-btn">Sign up now</button>
+                    </Link>
                     
                 </form>
             </div>
