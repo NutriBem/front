@@ -19,7 +19,8 @@ export const images = {
   linkedin: '/src/assets/images/customer/frame.jpeg',
   vector: '/src/assets/images/customer/Vector.png',
   coracao: '/src/assets/images/customer/coracao.png',
-  agenda: '/src/assets/images/customer/agenda (2).png'
+  agenda: '/src/assets/images/customer/agenda (2).png',
+  passo: '/src/assets/images/customer/Passo.svg'
 };
 
 export const icons = {
