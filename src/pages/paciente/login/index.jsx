@@ -23,16 +23,17 @@ export default function Login() {
 
         try {
             const response = await ApiService.person.loginUser(email, senha)
-
+            console.log("response: " + response)
+            
             if (response && response.data) {
-                const token = response.data.data
+                const token = response.data
 
                 if(token){
                     localStorage.setItem("user-token", token)
                     localStorage.setItem("user-email", email)
 
                     toast.success("sdklmdsk");
-                    console.log("porfa vai ^^")
+                    console.log("porfa vai ^^", token)
 
                     setTimeout(() => {
                     navigate('/')
