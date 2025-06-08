@@ -179,9 +179,6 @@ export default function Home() {
                                     {visibleIndex === index && (
                                         <div className="info">
                                             <p>{item.texto}</p>
-                                            <p>
-                                                <a href="#link">Clique aqui para saber como ter uma alimentação mais saudável</a>
-                                            </p>
                                         </div>
                                     )}
                                 </li>
@@ -233,18 +230,6 @@ export default function Home() {
                         Segunda a Sexta: 08h00 às 18h00</p>
                 </div>
             </div>
-
-            {/* <div class="footer-payments">
-                <img src="amex.png" alt="Amex">
-                <img src="mastercard.png" alt="MasterCard">
-                <img src="visa.png" alt="Visa">
-                <img src="hipercard.png" alt="Hipercard">
-                <img src="elo.png" alt="Elo">
-                <img src="paypal.png" alt="PayPal">
-                <img src="pix.png" alt="PIX">
-                <img src="barcode.png" alt="Boleto">
-            </div> */}
-
         </div>
     );
 }
