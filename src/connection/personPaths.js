@@ -15,7 +15,7 @@ export const getById = async(id) => {
 
 export const loginUser = async(email, password) => {
     try {
-        const response = api.post('/login', {
+        const response = await api.post('/login', {
             email,
             password
         });
