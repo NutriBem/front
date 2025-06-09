@@ -1,10 +1,9 @@
 import api from "../config/axiosConfig";
 
-export const register = async (crm, cpf, name, email, password, telephone) => {
+export const register = async (crm, name, email, password, telephone) => {
   try {
     const response = await api.post('/nutritionist', {
       crm,
-      cpf,
       name, 
       email,
       password,
