@@ -7,46 +7,53 @@ import ApiService from '../../../../connection/ApiService';
 
 function CadastroPaciente() {
 
-  const [formData, setFormData] = useState({
-          cpf: "",
-          name: "",
-          email: "",
-          password: "",
-          telephone: ""
-      });
-      
-      const ref = useRef();
-      const [loading, setLoading] = useState(false);
-      const [error, setError] = useState(null);
+  const [cpf, setCpf] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [telephone, setTelephone] = useState("");
 
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+  // const [formData, setFormData] = useState({
+  //   cpf: "",
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   telephone: ""
+  // });
 
-      const RegisterPatient = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
+  const ref = useRef();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-        try {
-            const response = await ApiService.patient.register(
-                formData.cpf,
-                formData.name,
-                formData.email,
-                formData.password,
-                formData.telephone
-            );
-            toast.success('Registration successful!')
-        } catch (error) {
-            setError(error.response?.data?.message || 'Registration failed');
-        } finally {
-            setLoading(false);
-        }
-    };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     [name]: value
+  //   }));
+  // };
+
+  const RegisterPatient = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+
+      const response = await ApiService.patient.register(
+        cpf,
+        name,
+        email,
+        password,
+        telephone
+      );
+      toast.success('Registration successful!')
+    } catch (error) {
+      setError(error.response?.data?.message || 'Registration failed');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container-cadastroPaciente">
@@ -60,35 +67,35 @@ function CadastroPaciente() {
           <form className="form-grid-cadastroPaciente" onSubmit={RegisterPatient}>
             <div className="form-group-cadastroPaciente">
               <label>Nome</label>
-              <input type="text" placeholder="Digite o nome do paciente" value={formData.name} onChange={handleChange} />
+              <input type="text" placeholder="Digite o nome do paciente" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
 
             <div className="form-group-cadastroPaciente">
               <label>Email</label>
-              <input type="email" placeholder="Digite Email do paciente" value={formData.email} onChange={handleChange} required/>
+              <input type="email" placeholder="Digite Email do paciente" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
 
             <div className="form-group-cadastroPaciente">
               <label>Senha</label>
-              <input type="password" placeholder="Digite a senha do paciente" value={formData.password} onChange={handleChange} required/>
+              <input type="password" placeholder="Digite a senha do paciente" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
 
             <div className="form-group-cadastroPaciente">
               <label>Telefone</label>
-              <input type="tel" placeholder="Digite o telefone do paciente" value={formData.telephone} onChange={handleChange} required/>
+              <input type="tel" placeholder="Digite o telefone do paciente" value={telephone} onChange={(e) => setTelephone(e.target.value)} required />
             </div>
 
             <div className="form-group-cadastroPaciente full-width-cadastroPaciente">
               <label>CPF</label>
-              <input type="text" placeholder="Digite o CPF do paciente" value={formData.cpf} onChange={handleChange} required/>
+              <input type="text" placeholder="Digite o CPF do paciente" value={cpf} onChange={(e) => setCpf(e.target.value)} required />
             </div>
 
             <div className="form-group-cadastroPaciente full-width-cadastroPaciente">
 
-               {error && <div className="error-message">{error}</div>}
+              {error && <div className="error-message">{error}</div>}
 
-              <button type="submit" className="submit-btn-cadastroPaciente" disabled={loading}>
-                 {loading ? 'Registering...' : 'Cadastro'}
+              <button onClick={(e) => RegisterPatient(e)} type="submit" className="submit-btn-cadastroPaciente" disabled={loading}>
+                {loading ? 'Registering...' : 'Cadastro'}
               </button>
             </div>
           </form>

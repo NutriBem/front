@@ -70,7 +70,7 @@ export default function Login() {
 
       console.log(error.message);
       if (error.response?.status === 400) {
-        setErro(err.response.data.erro);
+        setErro(error.response.data.erro);
       } else {
         toast.error("Usuário não logado, tente novamente");
       }
