@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './agendamentoConsulta.css';
 import User from '../../../components/cabecalhoUser/cabecalhoUser';
+import ApiService from "../../../connection/ApiService";
 
 function AgendaConsulta() {
     const meses = [
@@ -12,12 +13,56 @@ function AgendaConsulta() {
     const [anoAtual, setAnoAtual] = useState(new Date().getFullYear());
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
+    const [datas, setDatas] = useState([]);
+
+    const createAppointment = async () => {
+        // consultar o id na localStorage
+        // const id = "";
+
+        try {
+            const response = ApiService.appointment.create("0b1cdb61-5c62-4784-9864-b04f7554cb9a", 4, ""); // (idPatient, idAgenda, idReceptionist) está funcionando
+            console.log(response);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // Obj agenda
+    //[
+    // {
+    //  "id": 1
+    // 	"nutriName": "Luis",
+    // 	"date": "2025-06-09",
+    // 	"time": "08:00:00",
+    // 	"disponibility": true
+    // },
+    // {
+    //  "id": 1
+    // 	"nutriName": "Luis",
+    // 	"date": "2025-06-09",
+    // 	"time": "08:00:00",
+    // 	"disponibility": true
+    // },
+    //]
+
+    useEffect(() => {
+        async function fetch() {
+            try {
+                const response = await ApiService.agenda.getAll();
+                setDatas(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetch();
+    }, [])
 
     const diasUteisDoMes = () => {
         const dias = [];
         const data = new Date(anoAtual, mesAtual, 1);
         while (data.getMonth() === mesAtual) {
-            const diaDaSemana = data.getDay(); 
+            const diaDaSemana = data.getDay();
             if (diaDaSemana >= 1 && diaDaSemana <= 5) {
                 dias.push(new Date(data));
             }
@@ -40,11 +85,11 @@ function AgendaConsulta() {
                 <div className="agendaConsulta-header">
                     <h2>Agendar consulta</h2>
                 </div>
-
+                <button onClick={() => createAppointment()}>Simula criar agenda</button>
                 <div className="agendaConsulta-content">
 
                     <div className="agendaConsulta-calendario">
-                        
+
                         <div className="agendaConsulta-controle-mes">
                             <p className="agendaConsulta-instrucao">
                                 Selecione o dia e o horário que deseja:
