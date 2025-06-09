@@ -444,7 +444,7 @@
 
 @media (max-width: 530px) {
   .container_home .carrossel h2 {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 }
 
@@ -474,7 +474,7 @@
   }
 
   .container_home .carrossel h2 {
-    font-size: 24px;
+    font-size: 24px !important;
   }
 
   .calcular_imc h3,
