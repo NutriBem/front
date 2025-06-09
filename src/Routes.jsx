@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //user
 import Register from './pages/paciente/register/index'
@@ -30,7 +32,8 @@ import NotFound from './errors'
 
 export default function Routess() {
   return (
-    <BrowserRouter>
+  <>
+     <BrowserRouter>
       <Routes>
         {/*Área usuário*/}
         <Route path='/' element={<Home />} />  
@@ -64,5 +67,20 @@ export default function Routess() {
         
       </Routes>
     </BrowserRouter>
+
+    <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+    />
+  </>
   )
 }
+
