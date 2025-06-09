@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './listaNutris.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
+import ApiService from '../../../../connection/ApiService';
 
 function ListaNutricionistas() {
+
+    const [nutricionistas, setNutricionistas] = useState([])
+    const [searchCrm, setSearchCrm] = useState('')
+
+    //carregar nutri
+    useEffect(() => {
+  async function fetchNutricionistas() {
+    try {
+      const response = await ApiService.nutricionist.GetAllNutritionists()
+
+      console.log("Resposta completa:", response); 
+      setNutricionistas(response)
+
+    } catch (error) {
+      console.error('Erro: ' + error)
+    }
+  }
+  fetchNutricionistas();
+}, []);
+
+const filtraNutricionistas = nutricionistas.filter(nutricionista =>
+    nutricionista.crm && nutricionista.crm.includes(searchCrm)
+  );
+
+
+
     return (
         <div className="container-listaNutri">
             <Header />
@@ -16,6 +43,8 @@ function ListaNutricionistas() {
                             type="text"
                             placeholder="Informe o nome da Nutricionista"
                             className="campo-input-listaNutri"
+                             value={searchCrm}
+              onChange={(e) => setSearchCrm(e.target.value)}
                         />
                         <button className="botao-pesquisa-listaNutri">🔍</button>
                     </div>
@@ -32,7 +61,22 @@ function ListaNutricionistas() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* Dados dinâmicos aqui */}
+                                {filtraNutricionistas.map((nutricionista) => (
+                                      <tr key={nutricionista.id}>
+                    <td>{nutricionista.name || 'N/A'}</td>
+                    <td>{nutricionista.telephone || 'N/A'}</td>
+                    <td>{nutricionista.cpf || 'N/A'}</td>
+                    <td>{nutricionista.email || 'N/A'}</td>
+                    <td>
+                      <button 
+                        className="details-button"
+                        onClick={() => console.log("Detalhes:", nutricionista)}
+                      >
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
