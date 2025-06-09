@@ -1,0 +1,1 @@
+import { HMRLogger } from "vite/module-runner";

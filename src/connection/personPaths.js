@@ -2,7 +2,7 @@ import api from "../config/axiosConfig";
 
 export const getById = async(id) => {
     try {
-        const response = api.get(`id/${id}`);
+        const response = await api.get(`id/${id}`);
         return response.data
     } catch (error) {
         console.error('[API] Erro em achar usuario por id:', {
@@ -31,7 +31,7 @@ export const loginUser = async(email, password) => {
 
 export const deleteById = async(id) => {
     try {
-        const response = api.delete(`delete/${id}`);
+        const response = await api.delete(`delete/${id}`);
         return response.data;
     } catch (error) {
         console.error('[API] Erro em deletar usuario:', {
@@ -44,7 +44,7 @@ export const deleteById = async(id) => {
 
 export const editUser = async(nome, email, telephone) => {
     try {
-        const response = api.put('/edit', {
+        const response = await api.put('/edit', {
             nome,
             email,
             telephone
@@ -60,7 +60,7 @@ export const editUser = async(nome, email, telephone) => {
 
 export const editPasswordUser = async(id, password) => {
     try {
-        const response = api.put(`/${id}/ChangePassword`, {
+        const response = await api.put(`/${id}/ChangePassword`, {
             password
         })
         return response.data;
