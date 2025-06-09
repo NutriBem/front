@@ -1,3 +1,4 @@
+import React, { useState, useRef } from "react";
 import './cadastroPaciente.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
 import { toast } from 'react-toastify';
@@ -13,7 +14,8 @@ function CadastroPaciente() {
           password: "",
           telephone: ""
       });
-    
+      
+      const ref = useRef();
       const [loading, setLoading] = useState(false);
       const [error, setError] = useState(null);
 
@@ -58,7 +60,7 @@ function CadastroPaciente() {
           <form className="form-grid-cadastroPaciente" onSubmit={RegisterPatient}>
             <div className="form-group-cadastroPaciente">
               <label>Nome</label>
-              <input type="text" placeholder="Digite o nome do paciente" value={formData.name} onChange={handleChange} required/>
+              <input type="text" placeholder="Digite o nome do paciente" value={formData.name} onChange={handleChange} />
             </div>
 
             <div className="form-group-cadastroPaciente">

@@ -1,7 +1,8 @@
-
+import React, { useState, useRef } from "react";
 import './cadastroNutri.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
 import ApiService from '../../../../connection/ApiService';
+import LoadingBar from 'react-top-loading-bar';
 
 function CadastroNutri() {
 
@@ -15,6 +16,7 @@ function CadastroNutri() {
     
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+   const ref = useRef();
 
   const handleChange = (e) => {
         const { name, value } = e.target;
@@ -75,6 +77,8 @@ function CadastroNutri() {
               <label>CRM</label>
               <input type="text" placeholder="Digite o CRM do nutricionista" value={formData.crm} onChange={handleChange} required/>
             </div>
+
+             {error && <div className="error-message">{error}</div>}
 
             <div className="grupo-formulario-cadastroNutri full-width">
               <button type="submit" className="botao-submit-cadastroNutri" disabled={loading}>
