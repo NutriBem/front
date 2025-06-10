@@ -11,6 +11,9 @@ function HomeRecepcionista() {
     const formattedDate = today.toLocaleDateString('pt-BR', options);
 
     const [appointments, setAppointments] = useState([]);
+    const Array = [{hour: "09:00", nameNutri:"Dr.Carlos", namePasient: "Alisson"},
+        {hour: "10:00", nameNutri:"Dr.Roberto", namePasient: "Luis"},
+        {hour: "10:30", nameNutri:"Dra.Fabiana", namePasient: "Rodrigo"}];
 
     useEffect(() => {
         async function fetch() {
@@ -78,9 +81,28 @@ function HomeRecepcionista() {
                         <h3>Agenda do dia</h3>
                         <p className="homeRecepcionista-date">{formattedDate}</p>
                         <div className="homeRecepcionista-agenda-list">
+                            {/* <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
                             <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
-                            <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
-                            <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
+                            <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div> */}
+                        
+                                {Array.map(value =>
+                            
+                                <div>
+                                    <p>
+                                        {value.hour}
+                                    </p>
+                                    <p>
+                                        {value.nameNutri}
+                                    </p>
+                                    <p>
+                                        {value.namePasient}
+                                    </p>
+                                    
+                                </div>
+                            )}
+                    
+                            
+
                         </div>
                     </section>
                 </div>
