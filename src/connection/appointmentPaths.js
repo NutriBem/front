@@ -44,10 +44,23 @@ export const getById = async (id) => {
     }
 }
 
+export const getAppointmentOfTheDay = async () => {
+    try {
+        const response = await api.get("/appointment/day");
+        return response.data;
+    } catch (error) {
+        console.error('[API] error:', {
+            Details: error.response?.data,
+            Status: error.response?.status
+        });
+        throw error
+    }
+}
+
 export const getAll = async () => {
     try {
         const response = await api.get(`/appointment`);
-        return response;
+        return response.data;
     } catch (error) {
         console.error('[API] Erro', {
             Details: error.response?.data,
