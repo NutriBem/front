@@ -21,7 +21,7 @@ function AgendaConsulta() {
             if (selectedAgendaId == null)
                 return
 
-            const response = await ApiService.appointment.create("a277f807-5ac2-465e-ba64-061c9f6bba3b", selectedAgendaId, ""); // (idPatient, idAgenda, idReceptionist) está funcionando
+            const response = await ApiService.appointment.create(localStorage.getItem("user-token"), selectedAgendaId, ""); // (idPatient, idAgenda, idReceptionist) está funcionando
             console.log(response);
         } catch (error) {
             console.error(error);
