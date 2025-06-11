@@ -43,7 +43,7 @@ export const deleteById = async (id) => {
 }
 
 
-export const editUser = async(id, name, email, telephone) => {
+export const editUser = async (id, name, email, telephone) => {
     try {
         const response = await api.put(`/edit/${id}`, {
             name,
@@ -57,7 +57,7 @@ export const editUser = async(id, name, email, telephone) => {
             Status: error.response?.status
         });
     }
-        throw error; 
+    throw error;
 }
 
 export const editPasswordUser = async (id, password) => {
@@ -65,12 +65,18 @@ export const editPasswordUser = async (id, password) => {
         const response = await api.put(`/${id}/ChangePassword`, {
             password
         })
-        return response.data;
+
+        if (typeof response.data === 'string') {
+            return { data: { success: true, message: response.data } };
+        }
+
+        return response;
     } catch (error) {
         console.error('[API] Erro em editar senha de usuario:', {
             Details: error.response?.data,
             Status: error.response?.status
         });
+        throw error;
     }
 }
 
@@ -102,7 +108,7 @@ export const getImagePerson = async (id) => {
 
         const blob = URL.createObjectURL(response.data);
         return blob;
-    } catch (error) {   
+    } catch (error) {
         console.error('[API] Erro em inserir a imagem do usuario:', {
             Details: error.response?.data,
             Status: error.response?.status

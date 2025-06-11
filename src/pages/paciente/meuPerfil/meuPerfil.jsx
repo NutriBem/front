@@ -4,6 +4,7 @@ import Header from "../../../components/cabecalhoUser/cabecalhoUser";
 import { Link } from "react-router-dom";
 import ApiService from "../../../connection/ApiService";
 import { useEditPatient } from "../../../hooks/useEditPatient";
+import { toast } from "react-toastify";
 
 function MeuPerfil() {
   const [file, setFile] = useState(null);
@@ -15,7 +16,32 @@ function MeuPerfil() {
     name: "",
     email: "",
     telephone: "",
+    password: "",
   });
+
+  const [newPassword, setNewPassword] = useState("");
+
+  async function fetchChangePassword(password) {
+    try {
+      const response = await ApiService.person.editPasswordUser(
+        idPerson,
+        password
+      );
+
+      if (response && response.data) {
+      toast.success(response.data.message || "Senha alterada com sucesso!");
+      setNewPassword('');
+      
+      // Forçar logout após alteração de senha
+     
+    } else {
+      throw new Error("Resposta inesperada da API");
+    }
+    } catch (error) {
+      toast.error(`Erro ao alterar a senha: ${error.message}`);
+      console.error("Erro detalhado:", error.response?.data || error.message);
+    }
+  }
 
   async function fetchUserData() {
     try {
@@ -151,13 +177,23 @@ function MeuPerfil() {
           <div className="campo">
             <label>Senha</label>
             {editingId === idPerson ? (
-              <input
-                name="password"
-                type="password"
-                value={editForm.password || ""}
-                onChange={CampoEditChange}
-                placeholder="********"
-              />
+              <div className="password-change-container">
+                <input
+                  name="password"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Nova senha"
+                />
+                <button
+                  type="button"
+                  className="btn-change-password"
+                  onClick={() => fetchChangePassword(newPassword)}
+                  disabled={!newPassword}
+                >
+                  Alterar Senha
+                </button>
+              </div>
             ) : (
               <span>********</span>
             )}
