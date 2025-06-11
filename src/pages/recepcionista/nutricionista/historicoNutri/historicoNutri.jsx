@@ -1,6 +1,7 @@
 import React from 'react';
 import './historicoNutri.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
+import Card from '../../../../components/cardNutriInformacao/cardNutriInformacao'
 
 function HistoricoNutri() {
   return (
@@ -12,7 +13,7 @@ function HistoricoNutri() {
         <div className="filtros-historicoNutri">
           <input
             type="text"
-            placeholder="Digite o nome da nutricionista"
+            placeholder="Digite o CRM"
             className="campo-pesquisa-historicoNutri"
           />
           <button className="botao-pesquisa-historicoNutri">🔍</button>
@@ -23,7 +24,7 @@ function HistoricoNutri() {
         </div>
 
         <div className="agendamentos-historicoNutri">
-          {/* Nenhum dado exibido pois o banco está vazio */}
+          <Card/>
         </div>
       </main>
     </div>

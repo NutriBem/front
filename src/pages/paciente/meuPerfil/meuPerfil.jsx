@@ -103,7 +103,6 @@ function MeuPerfil() {
           )}
           <p className="bemvindo-texto">
             Bem vindo(a), {localStorage.getItem("user-name")}
-            <span className="nome-dinamico">{/* Nome do usuário */}</span>
           </p>
         </div>
 

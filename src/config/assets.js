@@ -25,7 +25,8 @@ export const images = {
   relogio: '/src/assets/images/customer/clock 5.png',
   maps: '/src/assets/images/customer/black-placeholder-variant 9.png',
   usuario: '/src/assets/images/customer/user 27.png',
-  checagem: '/src/assets/images/customer/file 13.png'
+  checagem: '/src/assets/images/customer/file 13.png',
+  cpf: '/src/assets/images/customer/file 18.png'
 };
 
 export const icons = {

@@ -69,10 +69,7 @@ function HomeRecepcionista() {
                                         <span>Adicionar nutrólogo</span>
                                     </div>
                                 </Link>
-                                <div className="homeRecepcionista-button">
-                                    <img src={images.agenda} alt="Adicionar agenda" />
-                                    <span>Adicionar agenda</span>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

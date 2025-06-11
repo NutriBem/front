@@ -1,6 +1,7 @@
 import React from 'react';
 import './historicoPaciente.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista'; 
+import Card from '../../../../components/cardPacienteInformacao/cardPacienteInformacao'
 
 function HistoricoPaciente() {
   return (
@@ -20,7 +21,7 @@ function HistoricoPaciente() {
         </div>
 
         <div className="appointments-historicoPaciente">
-          {/* Nenhum dado exibido pois o banco está vazio */}
+          <Card/>
         </div>
       </main>
     </div>
