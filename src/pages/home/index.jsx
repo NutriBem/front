@@ -41,154 +41,267 @@ export default function Home() {
                     bem-estar começa aqui</h2>
             </div>
 
-            <div className='tratamentoGrid'>
-                <p className='titulo2'>Tratamentos</p>
+            {/* Treatments Grid */}
+      <section className="treatments-section">
+        <div className="section-header">
+          <h2>Nossos Tratamentos</h2>
+          <p className="section-subtitle">
+            Cuidados especializados para cada necessidade
+          </p>
+        </div>
 
-                <a href='/gastrointestinais' className='card'>
-                    <img src={images.Gastrointestinais} alt="" />
-                    <p>Gastrointestinais</p>
-                </a>
+        <div className="tratamentoGrid">
+          <a href="/gastrointestinais" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Gastrointestinais} alt="Gastrointestinais" />
+            </div>
+            <h3>Gastrointestinais</h3>
+            <p>Problemas digestivos e intestinais</p>
+          </a>
 
-                <a href='/metabolica' className='card'>
-                    <img src={images.Metabolica} alt="" />
-                    <p>Metabólica</p>
-                </a>
+          <a href="/metabolica" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Metabolica} alt="Metabólica" />
+            </div>
+            <h3>Metabólica</h3>
+            <p>Distúrbios do metabolismo</p>
+          </a>
 
-                <a href='/obesidade' className='card'>
-                    <img src={images.Obesidade} alt="" />
-                    <p>Obsidade</p>
-                </a>
+          <a href="/obesidade" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Obesidade} alt="Obesidade" />
+            </div>
+            <h3>Obesidade</h3>
+            <p>Controle e redução de peso</p>
+          </a>
 
-                <a href='/oncologia' className='card'>
-                    <img src={images.Oncologia} alt="" />
-                    <p>Oncologia</p>
-                </a>
+          <a href="/oncologia" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Oncologia} alt="Oncologia" />
+            </div>
+            <h3>Oncologia</h3>
+            <p>Acompanhamento nutricional</p>
+          </a>
 
-                <a href='/esposte' className='card'>
-                    <img src={images.Esporte} alt="" />
-                    <p>Esporte</p>
-                </a>
+          <a href="/esposte" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Esporte} alt="Esporte" />
+            </div>
+            <h3>Esporte</h3>
+            <p>Nutrição para atletas</p>
+          </a>
 
-                <a href='/hipocaloria' className='card'>
-                    <img src={images.Hipocaloria} alt="" />
-                    <p>Hipocaloria</p>
-                </a>
+          <a href="/hipocaloria" className="treatment-card">
+            <div className="card-icon">
+              <img src={images.Hipocaloria} alt="Hipocaloria" />
+            </div>
+            <h3>Hipocaloria</h3>
+            <p>Dietas de baixa caloria</p>
+          </a>
+        </div>
+      </section>
+
+      {/* IMC Calculator */}
+      <section className="imc-section">
+        <div className="section-header">
+          <h2>Calcule seu Índice de Massa Corporal</h2>
+          <p className="section-subtitle">
+            Descubra seu estado nutricional em poucos passos
+          </p>
+        </div>
+
+        <div className="imc-container">
+          <div className="calculator-card">
+            <div className="calculator-header">
+              <h3>Cálculo de IMC</h3>
+              <p>Preencha seus dados para obter um resultado preciso</p>
             </div>
 
-            <div className='calculo_imc'>
-                <h2>
-                    Calcule seu ÍNDICE DE MASSA CORPORAL - IMC
-                </h2>
+            <div className="input-group">
+              <label htmlFor="idade">Idade</label>
+              <input
+                id="idade"
+                type="number"
+                placeholder="Ex: 30"
+                value={idade}
+                onChange={(e) => setIdade(e.target.value)}
+              />
+            </div>
 
-                <div className="imc_container">
-                    <div className="calcular_imc">
-                        <h3>Cálculo de IMC</h3>
-                        <p style={{ fontFamily: "Inter", margin: "10px" }}>
-                            Para um cálculo preciso, precisamos de algumas informações básicas sobre você
-                        </p>
+            <div className="input-group">
+              <label htmlFor="altura">Altura (cm)</label>
+              <input
+                id="altura"
+                type="number"
+                placeholder="Ex: 175"
+                value={altura}
+                onChange={(e) => setAltura(e.target.value)}
+              />
+            </div>
 
-                        <div className="etapas">
-                            <div className="etapa"><span>1</span> Você é</div>
-                            <div className="etapa"><span>2</span> Qual é a sua idade?</div>
-                            <div className="etapa"><span>3</span> Qual é a sua altura?</div>
-                            <div className="etapa"><span>4</span> Qual é o seu peso?</div>
-                        </div>
+            <div className="input-group">
+              <label htmlFor="peso">Peso (kg)</label>
+              <input
+                id="peso"
+                type="number"
+                placeholder="Ex: 70"
+                value={peso}
+                onChange={(e) => setPeso(e.target.value)}
+              />
+            </div>
 
-                        <div className="inputs">
-                            <input
-                                type="number"
-                                placeholder="Idade"
-                                value={idade}
-                                onChange={(e) => setIdade(e.target.value)}
-                            />
-                            <input
-                                type="number"
-                                placeholder="Altura (cm)"
-                                value={altura}
-                                onChange={(e) => setAltura(e.target.value)}
-                            />
-                            <input
-                                type="number"
-                                placeholder="Peso (kg)"
-                                value={peso}
-                                onChange={(e) => setPeso(e.target.value)}
-                            />
-                        </div>
+            <button className="calculate-btn" onClick={calcularIMC}>
+              Calcular IMC
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
 
-                        <button onClick={calcularIMC}>Calcule seu IMC</button>
+            {imc && (
+              <div className="result-container">
+                <h4>
+                  Seu IMC é: <span>{imc}</span>
+                </h4>
+                <p>
+                  Classificação:{" "}
+                  {
+                    [
+                      "Abaixo do peso",
+                      "Peso saudável",
+                      "Sobrepeso",
+                      "Obesidade Grau 1",
+                      "Obesidade Grau 2",
+                      "Obesidade Grau 3",
+                    ][visibleIndex]
+                  }
+                </p>
+              </div>
+            )}
+          </div>
 
-                        {imc && (
-                            <div className="resultado-imc">
-                                <h4>Seu IMC é: {imc}</h4>
-                            </div>
-                        )}
+          <div className="results-card">
+            <h3>Classificação IMC</h3>
+            <p>Veja a interpretação dos resultados</p>
+
+            <div className="classification-list">
+              {[
+                {
+                  range: "Menos que 18,5 kg/m²",
+                  status: "ABAIXO DO PESO",
+                  color: "#FFC107",
+                  description:
+                    "Você está com o PESO BAIXO do recomendado. Atenção! Procure sua Unidade de Saúde...",
+                },
+                {
+                  range: "18,5 - 24,9 kg/m²",
+                  status: "PESO SAUDÁVEL",
+                  color: "#4CAF50",
+                  description:
+                    "Você está com o peso ADEQUADO. Continue assim! Para se manter nesse perfil...",
+                },
+                {
+                  range: "25 - 29,9 kg/m²",
+                  status: "SOBREPESO",
+                  color: "#FF5722",
+                  description:
+                    "Você está com SOBREPESO. Atenção! Participe de ações de promoção da Saúde...",
+                },
+                {
+                  range: "30 - 34,9 kg/m²",
+                  status: "OBESIDADE GRAU 1",
+                  color: "#F44336",
+                  description:
+                    "Você está com OBESIDADE GRAU 1. Procure apoio. A obesidade pode contribuir para o comprometimento...",
+                },
+                {
+                  range: "35 - 39,9 kg/m²",
+                  status: "OBESIDADE GRAU 2",
+                  color: "#E91E63",
+                  description:
+                    "Você está com OBESIDADE GRAU 2. Procure apoio. A obesidade pode contribuir para o comprometimento...",
+                },
+                {
+                  range: "Acima de 40 kg/m²",
+                  status: "OBESIDADE GRAU 3",
+                  color: "#9C27B0",
+                  description:
+                    "Você está com OBESIDADE GRAU 3. Procure apoio. A obesidade pode contribuir para o comprometimento...",
+                },
+              ].map((item, index) => (
+                <div key={index} className="classification-item">
+                  <div
+                    className="classification-header"
+                    onClick={() =>
+                      setVisibleIndex(visibleIndex === index ? null : index)
+                    }
+                  >
+                    <div
+                      className="status-indicator"
+                      style={{ backgroundColor: item.color }}
+                    ></div>
+                    <div className="status-info">
+                      <span className="range">{item.range}</span>
+                      <span className="status" style={{ color: item.color }}>
+                        {item.status}
+                      </span>
                     </div>
-
-                    <div className="imc_estado">
-                        <h3>Estado Nutricional</h3>
-                        <p style={{ fontFamily: "inter" }}>Resultado de IMC:</p>
-                        <ul className="estado-lista" style={{ fontFamily: "Inter, sans-serif" }}>
-                            {[
-                                {
-                                    faixa: 'Menos que 18,5 kg/m²',
-                                    classe: 'amarelo',
-                                    titulo: 'ABAIXO DO PESO',
-                                    texto: 'Você está com o PESO BAIXO do recomendado. Atenção! Procure sua Unidade de Saúde...'
-                                },
-                                {
-                                    faixa: 'Entre 18,5 e 24,9 kg/m²',
-                                    classe: 'verde',
-                                    titulo: 'PESO SAUDÁVEL',
-                                    texto: 'Você está com o peso ADEQUADO. Continue assim! Para se manter nesse perfil...'
-                                },
-                                {
-                                    faixa: 'Entre 25 e 29,9 kg/m²',
-                                    classe: 'vermelho',
-                                    titulo: 'SOBREPESO',
-                                    texto: 'Você está com SOBREPESO. Atenção! Participe de ações de promoção da Saúde...'
-                                },
-                                {
-                                    faixa: 'Entre 30 e 34,9kg/m²',
-                                    classe: 'rosa',
-                                    titulo: 'OBESIDADE GRAU 1',
-                                    texto: 'Você está com OBESIDADE GRAU 1. Procure apoio. A obesidade pode contribuir para o comprometimento...'
-                                },
-                                {
-                                    faixa: 'Entre 35 e 39,9kg/m²',
-                                    classe: 'rosa',
-                                    titulo: 'OBESIDADE GRAU 2',
-                                    texto: 'Você está com OBESIDADE GRAU 2. Procure apoio. A obesidade pode contribuir para o comprometimento...'
-                                },
-                                {
-                                    faixa: 'Acima de 40 kg/m²',
-                                    classe: 'rosa',
-                                    titulo: 'OBESIDADE GRAU 3',
-                                    texto: 'Você está com OBESIDADE GRAU 3. Procure apoio. A obesidade pode contribuir para o comprometimento...'
-                                }
-                            ].map((item, index) => (
-                                <li key={index}>
-                                    <div className="estado-item">
-                                        <span>
-                                            {item.faixa}{' '}
-                                            <span className={item.classe}>{item.titulo}</span>
-                                        </span>
-                                        <button onClick={() => setVisibleIndex(visibleIndex === index ? null : index)}>
-                                            {visibleIndex === index ? '-' : '+'}
-                                        </button>
-                                    </div>
-                                    {visibleIndex === index && (
-                                        <div className="info">
-                                            <p>{item.texto}</p>
-                                        </div>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-
+                    <button className="toggle-btn">
+                      {visibleIndex === index ? (
+                        <svg
+                          width="16"
+                          height="2"
+                          viewBox="0 0 16 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1 1H15"
+                            stroke="#01261F"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 1V15M1 8H15"
+                            stroke="#01261F"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  </div>
+                  {visibleIndex === index && (
+                    <div className="classification-details">
+                      <p>{item.description}</p>
                     </div>
+                  )}
                 </div>
-
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
 
             <div className='passo'>
                 <img src={images.passo} />

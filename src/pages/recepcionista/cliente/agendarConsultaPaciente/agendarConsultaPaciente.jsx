@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './agendarConsultaPaciente.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
 import ApiService from '../../../../connection/ApiService';
+import { toast } from 'react-toastify';
 
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
@@ -16,13 +17,21 @@ export default function AgendarConsultaPaciente() {
 
     async function createAppointment() {
         try {
-            if (!patient)
-                throw "Informe o usuário";
+            if (!patient){
+            toast.warning('Informe o usuário');
+            console.log('oi✅❌')
+            return;
+        }
 
-            if (idAgenda === null)
-                throw "Informe a agenda";
+        if (idAgenda === null) {
+            console.log('oi✅❌2')
+            toast.warning('Informe a agenda');
+            return;
+        }
+         console.log('Enviando requisição...')
 
             await ApiService.appointment.create((patient ? patient.id : null), idAgenda, "");
+            toast.success('Consulta agendada com sucesso!✅')
             fetchAgenda();
         } catch (error) {
             console.error(error);
@@ -35,8 +44,18 @@ export default function AgendarConsultaPaciente() {
             const response = await ApiService.patient.getPatientByCpf(cpf);
             setPatient(response);
         } catch (error) {
-            console.error(error);
+        console.error('Erro no agendamento:', error);
+        if (error.response) {
+            // Erro com resposta do servidor
+            toast.error(`Erro: ${error.response.data?.Details || error.response.data || 'Erro no servidor'}`);
+        } else if (error.request) {
+            // Erro na requisição (sem resposta)
+            toast.error('Sem resposta do servidor');
+        } else {
+            // Outros erros
+            toast.error(`Erro: ${error.message}`);
         }
+    }
     }
 
     async function fetchAgenda() {
@@ -57,6 +76,7 @@ export default function AgendarConsultaPaciente() {
     }
 
     useEffect(() => {
+            toast.info('Toast de teste - Componente montado');
         fetchAgenda();
     }, []);
 

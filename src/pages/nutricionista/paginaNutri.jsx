@@ -38,6 +38,9 @@ function Agendamentos() {
               <td>
                 <button className="nutri-button">Detalhes</button>
               </td>
+              <td>
+                <input type="file" accept=".pdf"/>
+              </td>
             </tr>
           </tbody>
         </table>
