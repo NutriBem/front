@@ -11,7 +11,7 @@ function CabecalhoUser() {
     useEffect(() => {
         function carregarUser() {
             const userName = localStorage.getItem("user-name")
-            
+
             setNome(userName || 'Visitante')
         }
         carregarUser()
@@ -35,21 +35,24 @@ function CabecalhoUser() {
             </div>
 
             <div className="login-agendamento">
-                       {nome !== 'Visitante' && (
+                {nome !== 'Visitante' ? (
                     <>
-                        <p>Olá, {nome}</p>
-                        {/*{imagem && <img className="foto-perfil" src={imagem} alt="Foto de perfil" />}  */}
-                        <Link to={"/appointment"}><p>Agendamentos</p></Link>
-                        <button onClick={() => {
-                            clearLocalStorage()
-                            window.location.reload();
-                        }}>Sair</button>
+                        <div className="dropdown-user">
+                            <button className="user-button">{`Olá, ${nome}`}</button>
+                            <div className="dropdown-content">
+                                <Link to="/profile">Meu Perfil</Link>
+                                <button onClick={() => {
+                                    clearLocalStorage();
+                                    window.location.reload();
+                                }}>Sair</button>
+                            </div>
+                        </div>
+                        <Link to="/appointment"><p>Agendamentos</p></Link>
                     </>
-                )}
-                {nome === 'Visitante' && (
+                ) : (
                     <>
-                        <Link to={"/login"}><button id="login">Login</button></Link>
-                        <Link to={"/appointment"}><p>Agendamentos</p></Link>
+                        <Link to="/login"><button id="login">Login</button></Link>
+                        <Link to="/appointment"><p>Agendamentos</p></Link>
                     </>
                 )}
             </div>
