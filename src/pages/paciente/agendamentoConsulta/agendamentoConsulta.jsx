@@ -4,23 +4,24 @@ import User from '../../../components/cabecalhoUser/cabecalhoUser';
 import ApiService from "../../../connection/ApiService";
 
 function AgendaConsulta() {
-    const meses = [
-        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-    ];
-
     const [mesAtual, setMesAtual] = useState(new Date().getMonth());
     const [anoAtual, setAnoAtual] = useState(new Date().getFullYear());
-    const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
-    const [datas, setDatas] = useState([]);
+
+    const [selectedNutritionistCrm, setSelectedNutritionistCrm] = useState("");
+    const [nutritionists, setNutritionists] = useState([]);
+    const [agenda, setAgenda] = useState([]);
+    const [selectedAgendaId, setSelectedAgendaId] = useState(null);
 
     const createAppointment = async () => {
         // consultar o id na localStorage
         // const id = "";
 
         try {
-            const response = ApiService.appointment.create("0b1cdb61-5c62-4784-9864-b04f7554cb9a", 4, ""); // (idPatient, idAgenda, idReceptionist) está funcionando
+            if (selectedAgendaId == null)
+                return
+
+            const response = await ApiService.appointment.create("a277f807-5ac2-465e-ba64-061c9f6bba3b", selectedAgendaId, ""); // (idPatient, idAgenda, idReceptionist) está funcionando
             console.log(response);
         } catch (error) {
             console.error(error);
@@ -46,17 +47,34 @@ function AgendaConsulta() {
     //]
 
     useEffect(() => {
-        async function fetch() {
+        async function fetchNutritionis() {
             try {
-                const response = await ApiService.agenda.getAll();
-                setDatas(response);
+                const response = await ApiService.nutricionist.GetAllNutritionists();
+                setNutritionists(response);
             } catch (error) {
                 console.error(error);
             }
         }
 
-        fetch();
+        fetchNutritionis();
     }, [])
+
+
+    useEffect(() => {
+        async function fetchAgenda() {
+            if (!selectedNutritionistCrm) return;
+
+            try {
+                const response = await ApiService.agenda.getByCrm(selectedNutritionistCrm);
+                setAgenda(response);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchAgenda();
+    }, [selectedNutritionistCrm]);
+
 
     const diasUteisDoMes = () => {
         const dias = [];
@@ -71,11 +89,6 @@ function AgendaConsulta() {
         return dias;
     };
 
-    const horarios = [
-        "08:00", "09:00", "10:00", "11:00",
-        "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
-    ];
-
     const dias = diasUteisDoMes();
 
     return (
@@ -85,106 +98,62 @@ function AgendaConsulta() {
                 <div className="agendaConsulta-header">
                     <h2>Agendar consulta</h2>
                 </div>
-                <button onClick={() => createAppointment()}>Simula criar agenda</button>
                 <div className="agendaConsulta-content">
 
                     <div className="agendaConsulta-calendario">
 
-                        <div className="agendaConsulta-controle-mes">
-                            <p className="agendaConsulta-instrucao">
-                                Selecione o dia e o horário que deseja:
-                            </p>
-
-                            <div className="agendaConsulta-controle-ano">
-                                <label htmlFor="ano">Ano:</label>
-                                <select
-                                    id="ano"
-                                    className="agendaConsulta-select-ano"
-                                    value={anoAtual}
-                                    onChange={(e) => setAnoAtual(Number(e.target.value))}
-                                >
-                                    {Array.from({ length: 5 }, (_, i) => anoAtual - 2 + i).map((ano) => (
-                                        <option key={ano} value={ano}>{ano}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="agendaConsulta-controle-navegacao">
-                                <button
-                                    className="agendaConsulta-arrow"
-                                    onClick={() => {
-                                        if (mesAtual === 0) {
-                                            setMesAtual(11);
-                                            setAnoAtual(anoAtual - 1);
-                                        } else {
-                                            setMesAtual(mesAtual - 1);
-                                        }
-                                    }}
-                                >
-                                    ←
-                                </button>
-
-                                <select
-                                    className="agendaConsulta-select-mes"
-                                    value={mesAtual}
-                                    onChange={(e) => setMesAtual(Number(e.target.value))}
-                                >
-                                    {meses.map((mes, index) => (
-                                        <option key={index} value={index}>{mes}</option>
-                                    ))}
-                                </select>
-
-                                <button
-                                    className="agendaConsulta-arrow"
-                                    onClick={() => {
-                                        if (mesAtual === 11) {
-                                            setMesAtual(0);
-                                            setAnoAtual(anoAtual + 1);
-                                        } else {
-                                            setMesAtual(mesAtual + 1);
-                                        }
-                                    }}
-                                >
-                                    →
-                                </button>
-                            </div>
-                        </div>
-
                         <div className="agendaConsulta-dias">
-                            {dias.map((data, index) => {
-                                const diaFormatado = `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}`;
-                                return (
-                                    <div key={index} className="agendaConsulta-dia">
-                                        <p>{data.toLocaleDateString('pt-BR', { weekday: 'short' })}</p>
-                                        <p>{diaFormatado}</p>
-                                        <div className="agendaConsulta-horarios">
-                                            {horarios.map((h, i) => {
-                                                const valor = `${diaFormatado}-${h}`;
-                                                return (
-                                                    <button
-                                                        key={i}
-                                                        className={`agendaConsulta-horario ${selectedTime === valor ? 'selected' : ''}`}
-                                                        onClick={() => {
-                                                            setSelectedDate(diaFormatado);
-                                                            setSelectedTime(valor);
-                                                        }}
-                                                    >
-                                                        {h}
-                                                    </button>
-                                                );
-                                            })}
+                            {selectedNutritionistCrm ? (
+                                dias.map((data, index) => {
+                                    const diaFormatado = `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}`;
+                                    const horariosDisponiveis = agenda.filter(item =>
+                                        item.date === data.toISOString().split('T')[0] && item.disponibility
+                                    );
+
+                                    // Verifica se há horários disponíveis para o dia
+                                    if (horariosDisponiveis.length === 0)
+                                        return null; // Não renderiza o dia se não houver horários disponíveis
+
+                                    return (
+                                        <div key={index} className="agendaConsulta-dia">
+                                            <p>{data.toLocaleDateString('pt-BR', { weekday: 'short' })}</p>
+                                            <p>{diaFormatado}</p>
+                                            <div className="agendaConsulta-horarios">
+                                                {horariosDisponiveis.map((item, i) => {
+                                                    const valor = `${diaFormatado}-${item.time.split(':')[0]}:${item.time.split(':')[1]}`;
+                                                    return (
+                                                        <button
+                                                            key={i}
+                                                            className={`agendaConsulta-horario ${selectedTime === valor ? 'selected' : ''}`}
+                                                            onClick={() => {
+                                                                setSelectedTime(valor);
+                                                                setSelectedAgendaId(item.id); // Atribui o ID da agenda selecionada
+                                                            }}
+                                                        >
+                                                            {item.time.split(':')[0]}:{item.time.split(':')[1]}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })
+                            ) : (
+                                <div>Selecione o nutricionista</div>
+                            )}
                         </div>
                     </div>
 
                     <div className="agendaConsulta-resumo">
                         <label htmlFor="nutricionista">Selecione o nutricionista:</label>
-                        <select id="nutricionista" className="agendaConsulta-select-nutricionista">
-                            <option value="">--</option>
-                            {/* Dados virão do banco */}
+                        <select
+                            value={selectedNutritionistCrm}
+                            onChange={(e) => setSelectedNutritionistCrm(e.target.value)}
+                        >
+                            <option value="">-- Selecione --</option>
+                            {nutritionists.map(n => (
+                                <option key={n.crm} value={n.crm}>{n.name}</option>
+                            ))}
                         </select>
 
                         <div className="agendaConsulta-endereco">
@@ -195,7 +164,7 @@ function AgendaConsulta() {
                             <p>Próximo ao Shopping Central, fácil acesso por transporte público.</p>
                         </div>
 
-                        <button className="agendaConsulta-btn-agendar">Agendar</button>
+                        <button onClick={() => createAppointment()} className="agendaConsulta-btn-agendar">Agendar</button>
                     </div>
                 </div>
             </div>
