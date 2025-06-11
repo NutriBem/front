@@ -20,7 +20,12 @@ export const images = {
   vector: '/src/assets/images/customer/Vector.png',
   coracao: '/src/assets/images/customer/coracao.png',
   agenda: '/src/assets/images/customer/agenda (2).png',
-  passo: '/src/assets/images/customer/Passo.svg'
+  passo: '/src/assets/images/customer/Passo.svg',
+  calendario: '/src/assets/images/customer/calendar 24.png',
+  relogio: '/src/assets/images/customer/clock 5.png',
+  maps: '/src/assets/images/customer/black-placeholder-variant 9.png',
+  usuario: '/src/assets/images/customer/user 27.png',
+  checagem: '/src/assets/images/customer/file 13.png'
 };
 
 export const icons = {
