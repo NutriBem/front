@@ -2,7 +2,6 @@ import React from "react";
 import './cardUserInformacao.css';
 import { images } from "../../config/assets";
 
-///mapear AQUI!
 function CardUserInformacao({ data, horario, nutricionista, observacoes }) {
     return (
         <div className="cardUserInfo">
