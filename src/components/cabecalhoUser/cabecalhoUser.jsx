@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './cabecalhoUser.css';
 import { images, logos } from "../../config/assets";
 import { Link } from "react-router-dom";
-import ApiService from "../../connection/ApiService";
 import { clearLocalStorage } from "../../utils/clearLocalStorage";
 
 function CabecalhoUser() {
@@ -24,7 +23,7 @@ function CabecalhoUser() {
             <Link to={"/"}>
                 <div className="logo-titulo">
                     <img src={logos.nutriBem} alt="Logo Nutribem" />
-                    <p className="titulo">NUTRIBEM</p>
+                    <p className="titulo animate__animated animate__backInLeft">NUTRIBEM</p>
                 </div>
             </Link>
 

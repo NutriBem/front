@@ -1,92 +1,234 @@
 import React, { useEffect, useState } from "react";
-import './meuPerfil.css';
-import Header from '../../../components/cabecalhoUser/cabecalhoUser';
+import "./meuPerfil.css";
+import Header from "../../../components/cabecalhoUser/cabecalhoUser";
 import { Link } from "react-router-dom";
-import ApiService from '../../../connection/ApiService';
+import ApiService from "../../../connection/ApiService";
+import { useEditPatient } from "../../../hooks/useEditPatient";
+import { toast } from "react-toastify";
 
 function MeuPerfil() {
-    const [file, setFile] = useState(null);
-    const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
+  const [image, setImage] = useState(null);
 
-    const idPerson = "b62c1328-7d7e-46f8-94e9-f605bfcf04b8"; // depois trocar para pegar do localStorage
+  const idPerson = localStorage.getItem("user-token"); // depois trocar para pegar do localStorage
 
-    async function saveImage() {
-        try {
-            console.log(file);
-            await ApiService.person.addImagePerson(file, idPerson);
-            fetchImage();
-        } catch (error) {
-            console.error(error);
-        }
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    telephone: "",
+    password: "",
+  });
+
+  const [newPassword, setNewPassword] = useState("");
+
+  async function fetchChangePassword(password) {
+    try {
+      const response = await ApiService.person.editPasswordUser(
+        idPerson,
+        password
+      );
+
+      if (response && response.data) {
+      toast.success(response.data.message || "Senha alterada com sucesso!");
+      setNewPassword('');
+      
+      // Forçar logout após alteração de senha
+     
+    } else {
+      throw new Error("Resposta inesperada da API");
     }
-
-    async function fetchImage() {
-        try {
-            const response = await ApiService.person.getImagePerson(idPerson);
-            setImage(response);
-        } catch (error) {
-            console.error(error);
-        }
+    } catch (error) {
+      toast.error(`Erro ao alterar a senha: ${error.message}`);
+      console.error("Erro detalhado:", error.response?.data || error.message);
     }
+  }
 
-    useEffect(() => {
-        fetchImage();
-    }, []);
+  async function fetchUserData() {
+    try {
+      const data = await ApiService.person.getById(idPerson);
+      setUserData({
+        name: data.name,
+        email: data.email,
+        telephone: data.telefone,
+      });
+      localStorage.setItem("user-name", data.name);
+    } catch (error) {
+      console.error("Erro ao buscar usuário:", error);
+    }
+  }
 
-    return (
-        <div>
-            <Header />
-            <main className="perfil-content">
-                <h2 className="perfil-titulo">Meu Perfil</h2>
+  async function saveImage() {
+    try {
+      console.log(file);
+      await ApiService.person.addImagePerson(file, idPerson);
+      fetchImage();
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-                <div className="perfil-header">
-                    {image && (
-                        <img src={image} alt="Foto de perfil" className="foto-perfil" />
-                    )}
-                    <p className="bemvindo-texto">
-                        Bem vindo(a), <span className="nome-dinamico">{/* Nome do usuário */}</span>
-                    </p>
-                </div>
+  async function fetchImage() {
+    try {
+      const response = await ApiService.person.getImagePerson(idPerson);
+      setImage(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-                <div className="botoes-perfil">
-                    <Link to="/historicalConsults">
-                        <button className="btn-perfil">Ver meu histórico</button>
-                    </Link>
-                    <button className="btn-editar">Editar</button>
+  useEffect(() => {
+    fetchImage();
+    fetchUserData();
+  }, []);
 
-                    <label className="btn-upload">
-                        Adicionar foto de perfil
-                        <input type="file" accept=".png,.jpg,.jpeg" onChange={(e) => setFile(e.target.files[0])} />
-                    </label>
+  const {
+    editingId,
+    editForm,
+    isLoading,
+    iniciarEdicao,
+    CampoEditChange,
+    salvarEdicao,
+    cancelarEdicao,
+  } = useEditPatient();
 
-                    {file && (
-                        <button className="btn-salvar" onClick={saveImage}>
-                            Salvar imagem
-                        </button>
-                    )}
-                </div>
+  return (
+    <div>
+      <Header />
+      <main className="perfil-content">
+        <h2 className="perfil-titulo">Meu Perfil</h2>
 
-                <form className="form-perfil">
-                    <div className="campo">
-                        <label>Nome Completo</label>
-                        <input type="text" placeholder="" />
-                    </div>
-                    <div className="campo">
-                        <label>Senha</label>
-                        <input type="password" placeholder="********" />
-                    </div>
-                    <div className="campo">
-                        <label>E-mail</label>
-                        <input type="email" placeholder="" />
-                    </div>
-                    <div className="campo">
-                        <label>Telefone</label>
-                        <input type="text" placeholder="" />
-                    </div>
-                </form>
-            </main>
+        <div className="perfil-header">
+          {image && (
+            <img src={image} alt="Foto de perfil" className="foto-perfil" />
+          )}
+          <p className="bemvindo-texto">
+            Bem vindo(a), {localStorage.getItem("user-name")}
+          </p>
         </div>
-    );
+
+        <div className="botoes-perfil">
+          <Link to="/historicalConsults">
+            <button className="btn-perfil">Ver meu histórico</button>
+          </Link>
+          {editingId !== idPerson ? (
+            <button
+              className="btn-editar"
+              onClick={() =>
+                iniciarEdicao({
+                  id: idPerson,
+                  name: userData.name,
+                  email: userData.email,
+                  telephone: userData.telephone,
+                })
+              }
+            >
+              Editar
+            </button>
+          ) : (
+            <>
+              <button
+                className="btn-salvar"
+                disabled={isLoading}
+                onClick={async () => {
+                  await salvarEdicao(idPerson, fetchUserData);
+                }}
+              >
+                {isLoading ? "Salvando..." : "Salvar"}
+              </button>
+              <button className="btn-cancelar" onClick={cancelarEdicao}>
+                Cancelar
+              </button>
+            </>
+          )}
+
+          {/* input de foto e salvar imagem… */}
+          <label className="btn-upload">
+            Adicionar foto de perfil
+            <input
+              type="file"
+              accept=".png,.jpg,.jpeg"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+          </label>
+
+          {file && (
+            <button className="btn-salvar" onClick={saveImage}>
+              Salvar imagem
+            </button>
+          )}
+        </div>
+
+        <form className="form-perfil">
+          <div className="campo">
+            <label>Nome Completo</label>
+            {editingId === idPerson ? (
+              <input
+                name="name"
+                type="text"
+                value={editForm.name}
+                onChange={CampoEditChange}
+              />
+            ) : (
+              <span>{userData.name}</span>
+            )}
+          </div>
+
+          <div className="campo">
+            <label>Senha</label>
+            {editingId === idPerson ? (
+              <div className="password-change-container">
+                <input
+                  name="password"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Nova senha"
+                />
+                <button
+                  type="button"
+                  className="btn-change-password"
+                  onClick={() => fetchChangePassword(newPassword)}
+                  disabled={!newPassword}
+                >
+                  Alterar Senha
+                </button>
+              </div>
+            ) : (
+              <span>********</span>
+            )}
+          </div>
+
+          <div className="campo">
+            <label>E-mail</label>
+            {editingId === idPerson ? (
+              <input
+                name="email"
+                type="email"
+                value={editForm.email}
+                onChange={CampoEditChange}
+              />
+            ) : (
+              <span>{userData.email}</span>
+            )}
+          </div>
+
+          <div className="campo">
+            <label>Telefone</label>
+            {editingId === idPerson ? (
+              <input
+                name="telephone"
+                type="text"
+                value={editForm.telephone}
+                onChange={CampoEditChange}
+              />
+            ) : (
+              <span>{userData.telephone}</span>
+            )}
+          </div>
+        </form>
+      </main>
+    </div>
+  );
 }
 
 export default MeuPerfil;

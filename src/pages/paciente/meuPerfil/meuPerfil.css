@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: 40px auto;
     padding: 40px;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -34,6 +34,7 @@
 
 .bemvindo-texto {
     font-size: 18px;
+    font-family: "inter";
     font-weight: 500;
     color: #333;
 }
@@ -45,7 +46,7 @@
     margin-bottom: 30px;
 }
 
-.btn-perfil, .btn-editar, .btn-upload, .btn-salvar {
+.btn-perfil, .btn-editar, .btn-upload, .btn-salvar, .btn-cancelar{
     background-color: #8cc43c;
     color: white;
     border: none;
@@ -53,6 +54,7 @@
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-family: "inter";
     font-size: 14px;
     transition: background-color 0.3s ease;
 }
@@ -96,6 +98,7 @@
     margin-bottom: 8px;
     color: #333;
     font-weight: 500;
+    font-family: "inter";
     margin-left: 5px;
 }
 
@@ -105,6 +108,7 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     font-size: 14px;
+    font-family: "inter";
 }
 
 /* Responsivo */
