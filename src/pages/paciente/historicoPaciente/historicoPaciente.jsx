@@ -1,6 +1,7 @@
 import React from 'react';
 import './historicoPaciente.css';
 import Header from '../../../components/cabecalhoUser/cabecalhoUser'
+import Card from '../../../components/cardUserInformacao/cardUserInformacao'
 import { Link } from 'react-router-dom';
 function HistoricoConsultas() {
   return (
@@ -11,7 +12,7 @@ function HistoricoConsultas() {
         <h2>Histórico de Agendamento</h2>
 
         <section className="cards-historico">
-          {/* Os agendamentos serão renderizados aqui dinamicamente */}
+          <Card/>
         </section>
       </main>
 
