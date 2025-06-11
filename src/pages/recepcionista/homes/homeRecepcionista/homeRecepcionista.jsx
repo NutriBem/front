@@ -11,9 +11,9 @@ function HomeRecepcionista() {
     const formattedDate = today.toLocaleDateString('pt-BR', options);
 
     const [appointments, setAppointments] = useState([]);
-    const Array = [{hour: "09:00", nameNutri:"Dr.Carlos", namePasient: "Alisson"},
-        {hour: "10:00", nameNutri:"Dr.Roberto", namePasient: "Luis"},
-        {hour: "10:30", nameNutri:"Dra.Fabiana", namePasient: "Rodrigo"}];
+    const Array = [{ hour: "09:00", nameNutri: "Dr.Carlos", namePasient: "Alisson" },
+    { hour: "10:00", nameNutri: "Dr.Roberto", namePasient: "Luis" },
+    { hour: "10:30", nameNutri: "Dra.Fabiana", namePasient: "Rodrigo" }];
 
     useEffect(() => {
         async function fetch() {
@@ -84,10 +84,10 @@ function HomeRecepcionista() {
                             {/* <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
                             <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div>
                             <div>09:00 Dr. Simon White - Consulta com a Maria das Graças</div> */}
-                        
-                                {Array.map(value =>
-                            
-                                <div>
+
+                            {Array.map(value =>
+
+                                <div className="horario-agenda">
                                     <p>
                                         {value.hour}
                                     </p>
@@ -95,13 +95,13 @@ function HomeRecepcionista() {
                                         {value.nameNutri}
                                     </p>
                                     <p>
-                                        {value.namePasient}
+                                        Consulta com {value.namePasient}
                                     </p>
-                                    
+
                                 </div>
                             )}
-                    
-                            
+
+
 
                         </div>
                     </section>
