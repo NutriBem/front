@@ -57,6 +57,7 @@ export const editUser = async (id, name, email, telephone) => {
             Status: error.response?.status
         });
     }
+        // eslint-disable-next-line no-undef
         throw error; 
 }
 
