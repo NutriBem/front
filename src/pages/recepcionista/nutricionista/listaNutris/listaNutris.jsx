@@ -74,16 +74,7 @@ function ListaNutricionistas() {
               placeholder="Informe o CRM da Nutricionista"
               className="campo-input-listaNutri"
               value={searchCrm}
-          <div className="barra-pesquisa-listaNutri">
-            <input
-              type="text"
-              placeholder="Informe o CRM da Nutricionista"
-              className="campo-input-listaNutri"
-              value={searchCrm}
               onChange={(e) => setSearchCrm(e.target.value)}
-            />
-            <button className="botao-pesquisa-listaNutri">🔍</button>
-          </div>
             />
             <button className="botao-pesquisa-listaNutri">🔍</button>
           </div>
@@ -113,27 +104,6 @@ function ListaNutricionistas() {
                       >
                         Excluir
                       </button>
-                    </td>
-                    <td>
-                      <>
-                        <button
-                          className="delete-button"
-                          onClick={() => {
-                            console.log(
-                              "Tentando remover nutricionista com ID:",
-                              nutricionista.id
-                            );
-                            removerPerson(
-                              nutricionista.crm,
-                              nutricionista.name,
-                              ApiService.nutricionist.GetAllNutritionists,
-                              setNutricionistas
-                            );
-                          }}
-                        >
-                          Excluir
-                        </button>
-                      </>
                     </td>
                   </tr>
                 ))}
