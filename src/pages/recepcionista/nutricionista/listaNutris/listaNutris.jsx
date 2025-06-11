@@ -65,7 +65,7 @@ const filtraNutricionistas = nutricionistas.filter(nutricionista =>
                                       <tr key={nutricionista.id}>
                     <td>{nutricionista.name || 'N/A'}</td>
                     <td>{nutricionista.telephone || 'N/A'}</td>
-                    <td>{nutricionista.cpf || 'N/A'}</td>
+                    <td>{nutricionista.crm || 'N/A'}</td>
                     <td>{nutricionista.email || 'N/A'}</td>
                     <td>
                       <button 

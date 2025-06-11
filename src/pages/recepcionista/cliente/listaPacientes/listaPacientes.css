@@ -8,7 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .form-container-listaPaciente {
@@ -85,4 +84,150 @@
 
 .table-container-listaPaciente tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+.table-container-listaPaciente .details-button,
+.table-container-listaPaciente .edit-button,
+.table-container-listaPaciente .delete-button {
+    padding: 8px 12px; 
+    border: none;
+    background-color: transparent;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: "inter";
+}
+
+.table-container-listaPaciente .edit-button,
+.table-container-listaPaciente .delete-button {
+    margin-right: 5px; 
+}
+
+.table-container-listaPaciente button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "inter";
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background 0.3s ease;
+}
+
+
+.details-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.details-button:hover {
+  background-color: #2980b9;
+}
+
+.edit-button {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: #d4ac0d;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.save-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #27ae60;
+}
+
+.cancel-button {
+  background-color: #7f8c8d;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #636e72;
+}
+
+.table-container-listaPaciente td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.custom-confirm-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: white;
+  padding: 30px 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%; 
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  font-family: "inter";
+  z-index: 1001; 
+}
+
+.custom-confirm-modal h1 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-family: "inter";
+  color: #2c3e50;
+}
+
+.custom-confirm-modal p {
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-family: "inter";
+  color: #444;
+}
+
+.custom-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.custom-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "inter";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button-modal {
+  background-color: #7f8c8d;
+  color: white;
+}
+
+.cancel-button-modal:hover {
+  background-color: #626e70;
+}
+
+.confirm-button-modal {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.confirm-button-modal:hover {
+  background-color: #c0392b;
 }

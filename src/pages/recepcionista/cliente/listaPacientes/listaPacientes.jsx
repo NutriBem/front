@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './listaPacientes.css';
 import Header from '../../../../components/compRecepcionista/compRecepcionista';
 import ApiService from '../../../../connection/ApiService';
@@ -7,10 +7,10 @@ import { toast } from 'react-toastify';
 
 function ListaPaciente() {
 
-  const [pacientes, setPacientes] = useState([])
-  const [searchCpf, setSearchCpf] = useState('')
+  const [pacientes, setPacientes] = useState([]);
+  const [searchCpf, setSearchCpf] = useState('');
 
-  const [editingId, setEditingId] = useState(null)
+  const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({
     name: '',
     email: '',
@@ -20,74 +20,75 @@ function ListaPaciente() {
   const [isLoading, setIsLoading] = useState(false);
 
   //carregar pacientes
-useEffect(() => {
-  async function fetchPacientes() {
-    try {
-      const response = await ApiService.patient.getAllPatients();
+  useEffect(() => {
+    async function fetchPacientes() {
+      try {
+        const response = await ApiService.patient.getAllPatients();
+              console.log("Resposta completa:", response); 
 
-      console.log("Resposta completa:", response); 
-      setPacientes(response); //mds funciona
-
-    } catch (error) {
-      console.error('Erro: ' + error)
+        setPacientes(response);//mds funciona
+      } catch (error) {
+        console.error('Erro: ' + error);
+      }
     }
-  }
-  fetchPacientes();
-}, []);
+    fetchPacientes();
+  }, []);
 
-
-
-  // Função para remover paciente
-  async function removerPaciente(id, nome) {
+  // Função para remover paciente com modal customizado
+  function removerPaciente(id, nome) {
     confirmAlert({
-      title: 'Remover Paciente',
-      message: `Você tem certeza que deseja remover o paciente ${nome}?`,
-      buttons: [
-        {
-          label: 'Sim',
-          onClick: async () => {
-            try {
-              await ApiService.person.deleteById(id);
-              toast.success("Paciente removido com sucesso!");
-              
-              // Atualiza a lista de pacientes após remoção
-              const response = await ApiService.patient.getAllPatients();
-              setPacientes(response);
-              
-            } catch (error) {
-              console.error("Erro ao remover paciente:", error);
-              toast.error("Erro ao remover paciente!");
-            }
-          }
-        },
-        {
-          label: 'Não',
-          onClick: () => {}
-        }
-      ]
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-confirm-modal">
+            <h1 >Tem certeza?</h1>
+            <p>Você deseja remover o paciente <strong>{nome}</strong>?</p>
+            <div className="custom-buttons">
+              <button onClick={onClose} className="cancel-button-modal">Cancelar</button>
+              <button
+                className="confirm-button-modal"
+                onClick={async () => {
+                  try {
+                    await ApiService.person.deleteById(id);
+                    toast.success("Paciente removido com sucesso!");
+
+                    const response = await ApiService.patient.getAllPatients();
+                    setPacientes(response);
+                  } catch (error) {
+                    console.error("Erro ao remover paciente:", error);
+                    toast.error("Erro ao remover paciente!");
+                  }
+                  onClose();
+                }}
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        );
+      }
     });
   }
 
-  //Iniciar edição
+  // Iniciar edição
   const iniciarEdicao = (paciente) => {
-    setEditingId(paciente.id)
+    setEditingId(paciente.id);
     setEditForm({
       name: paciente.name || '',
       email: paciente.email || '',
       telephone: paciente.telephone || ''
-    })
-  }
+    });
+  };
 
-  //atualizar campo d formulartio 
+  // Atualizar campo do formulário
   const CampoEditChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setEditForm(prev => ({
       ...prev,
       [name]: value
-    }))
-  }
+    }));
+  };
 
-  //salvar edição 
+  // Salvar edição
   const salvarEdicao = async (id) => {
     setIsLoading(true);
     try {
@@ -96,25 +97,23 @@ useEffect(() => {
         editForm.name,
         editForm.email,
         editForm.telephone
-      )
+      );
 
-      const response = await ApiService.patient.getAllPatients()
-      setPacientes(response)
-      setEditingId(null)
+      const response = await ApiService.patient.getAllPatients();
+      setPacientes(response);
+      setEditingId(null);
 
-      toast.success("Paciente atualizado com sucesso")
-
+      toast.success("Paciente atualizado com sucesso");
     } catch (error) {
-      console.error("Error ao editar paciente: ", error)
-              const errorMessage = error.response?.data?.message || 
-                            error.response?.data || 
-                            'Erro ao atualizar paciente';
-        
-        toast.error(`Erro: ${errorMessage}`);
+      console.error("Erro ao editar paciente: ", error);
+      const errorMessage = error.response?.data?.message || 
+                           error.response?.data || 
+                           'Erro ao atualizar paciente';
+      toast.error(`Erro: ${errorMessage}`);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   // Cancelar edição
   const cancelarEdicao = () => {
@@ -152,10 +151,10 @@ useEffect(() => {
                   <th>CPF</th>
                   <th>EMAIL</th>
                   <th>DETALHES</th>
-                  <th>opções</th>
+                  <th>OPÇÕES</th>
                 </tr>
               </thead>
-            <tbody>
+              <tbody>
                 {filtraPpacientes.map((paciente) => (
                   <tr key={paciente.id}>
                     <td>
@@ -248,4 +247,3 @@ useEffect(() => {
 }
 
 export default ListaPaciente;
-
