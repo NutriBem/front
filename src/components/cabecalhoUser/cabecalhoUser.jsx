@@ -23,7 +23,7 @@ function CabecalhoUser() {
             <Link to={"/"}>
                 <div className="logo-titulo">
                     <img src={logos.nutriBem} alt="Logo Nutribem" />
-                    <p className="titulo">NUTRIBEM</p>
+                    <p className="titulo animate__animated animate__backInLeft">NUTRIBEM</p>
                 </div>
             </Link>
 
