@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './cabecalhoUser.css';
 import { images, logos } from "../../config/assets";
 import { Link } from "react-router-dom";
+import ApiService from "../../connection/ApiService";
+import { clearLocalStorage } from "../../utils/clearLocalStorage";
 
 function CabecalhoUser() {
+    const [nome, setNome] = useState('Visitante')
+
+    useEffect(() => {
+        function carregarUser() {
+            const userName = localStorage.getItem("user-name")
+            
+            setNome(userName || 'Visitante')
+        }
+        carregarUser()
+    }, [])
+
+
     return (
         <header className="cabecalho-user">
 
@@ -21,8 +35,23 @@ function CabecalhoUser() {
             </div>
 
             <div className="login-agendamento">
-                <Link to={"/login"}><button id="login">Login</button></Link>
-                <Link to={"/appointment"}><p>Agendamentos</p></Link>
+                       {nome !== 'Visitante' && (
+                    <>
+                        <p>Olá, {nome}</p>
+                        {/*{imagem && <img className="foto-perfil" src={imagem} alt="Foto de perfil" />}  */}
+                        <Link to={"/appointment"}><p>Agendamentos</p></Link>
+                        <button onClick={() => {
+                            clearLocalStorage()
+                            window.location.reload();
+                        }}>Sair</button>
+                    </>
+                )}
+                {nome === 'Visitante' && (
+                    <>
+                        <Link to={"/login"}><button id="login">Login</button></Link>
+                        <Link to={"/appointment"}><p>Agendamentos</p></Link>
+                    </>
+                )}
             </div>
 
         </header>

@@ -4,8 +4,12 @@ import { images, icons, logos } from '../../../config/assets'
 import './style.css';
 import 'animate.css';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Register() {
+
+    
+
     const [formData, setFormData] = useState({
         cpf: "",
         name: "",
@@ -39,9 +43,10 @@ export default function Register() {
                 formData.password,
                 formData.telephone
             );
-            alert('Registration successful!');
+            toast.success("Registration successful!")
         } catch (error) {
             setError(error.response?.data?.message || 'Registration failed');
+            toast.error(error.response?.data?.message)
         } finally {
             setLoading(false);
         }

@@ -15,7 +15,7 @@ export const getById = async(id) => {
 
 export const loginUser = async(email, password) => {
     try {
-        const response = api.post('/login', {
+        const response = await api.post('/login', {
             email,
             password
         });
@@ -42,19 +42,20 @@ export const deleteById = async(id) => {
     }
 }
 
-export const editUser = async(nome, email, telephone) => {
+export const editUser = async(id, name, email, telephone) => {
     try {
-        const response = await api.put('/edit', {
-            nome,
+        const response = await api.put(`/edit/${id}`, {
+            name,
             email,
             telephone
         });
         return response.data;
     } catch (error) {
         console.error('[API] Erro em editar dados do usuario:', {
-        Details: error.response?.data,
-        Status: error.response?.status
-    });
+            Details: error.response?.data,
+            Status: error.response?.status
+        });
+        throw error; 
     }
 }
 

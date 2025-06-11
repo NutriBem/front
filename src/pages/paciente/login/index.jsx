@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { toast } from "react-toastify";
 import ApiService from "../../../connection/ApiService";
+import { clearLocalStorage } from "../../../utils/clearLocalStorage";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,19 +25,24 @@ export default function Login() {
     try {
       const response = await ApiService.person.loginUser(email, senha); // o retorno é assim "data": "3d422a7c-8317-414a-b35f-96ecd146ebf7","error": ""
 
+      console.log("Resposta completa:", response);
+
+      clearLocalStorage();
+
       if (response && response.data) {
         const token = response.data;
 
         localStorage.setItem("user-token", token);
-        localStorage.setItem("user-email", email);
 
         //qual user
         const userWho = await ApiService.person.getById(token); //passar como argumento o id
         const userType = userWho.type;
+        const userName = userWho.name;
 
-        console.log("qual tipo de usuario " + userType)
+        console.log("qual tipo de usuario " + userType);
 
         localStorage.setItem("user-type", userType);
+        localStorage.setItem("user-name", userName);
 
         switch (userType) {
           case 1: // Patient
@@ -46,12 +52,12 @@ export default function Login() {
             break;
           case 2: // Nutritionist
             setTimeout(() => {
-              navigate("/");
+              navigate("/"); //RODRIGO COLOCA AQUI , AINDA EM IMPLEMENTAÇÃO
             }, 3000);
             break;
           case 3: // Recepcionist
             setTimeout(() => {
-              navigate("/");
+              navigate("/homeRecepcionist");
             }, 3000);
             break;
           default:
