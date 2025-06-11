@@ -2,25 +2,25 @@ import React from "react";
 import './cardNutriInformacao.css';
 import { images } from "../../config/assets";
 
-function CardNutriInformacao({ data, horario, nutricionista, observacoes }) {
+function CardNutriInformacao({ usuario, cpf, data, horario }) {
     return (
         <div className="cardNutriInfo">
             <div className="info-item">
                 <img src={images.usuario} alt="Nutricionista" />
                 <label>Nome:</label>
-                <p>{nutricionista}</p>
+                <p>{usuario}</p>
             </div>
 
             <div className="info-item">
                 <img src={images.cpf} alt="Calendário" />
                 <label>CPF</label>
-                <p>{data}</p>
+                <p>{cpf}</p>
             </div>
 
             <div className="info-item">
                 <img src={images.calendario} alt="Calendário" />
                 <label>Data e hora:</label>
-                <p>{data}</p>
+                <p>{data} e {horario}</p>
             </div>
 
             <div className="info-item">
