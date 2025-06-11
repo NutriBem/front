@@ -52,7 +52,7 @@ export default function Login() {
             break;
           case 2: // Nutritionist
             setTimeout(() => {
-              navigate("/"); //RODRIGO COLOCA AQUI , AINDA EM IMPLEMENTAÇÃO
+              navigate("/homeNutritionist"); 
             }, 3000);
             break;
           case 3: // Recepcionist
