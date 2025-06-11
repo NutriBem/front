@@ -1,6 +1,7 @@
 import React from 'react';
 import './paginaNutri.css';
 import { logos } from '../../config/assets';
+import { Link } from 'react-router-dom';
 
 function Agendamentos() {
   return (
@@ -11,12 +12,10 @@ function Agendamentos() {
       </header>
       
       <div className="nutri-title-bar">
-          <h2 className="nutri-title">Agendamentos</h2>
+        <h2 className="nutri-title">Agendamentos</h2>
       </div>
 
       <main className="nutri-main">
-        
-
         <div className="nutri-filters">
           <input type="text" placeholder="Nome" className="nutri-input" />
           <input type="date" className="nutri-input" />
@@ -42,6 +41,12 @@ function Agendamentos() {
             </tr>
           </tbody>
         </table>
+
+        <div className="nutri-home-button-container">
+          <Link to="/homeNutritionist" className="nutri-home-button">
+            Voltar à Home
+          </Link>
+        </div>
       </main>
     </div>
   );

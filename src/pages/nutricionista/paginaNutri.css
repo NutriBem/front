@@ -100,3 +100,24 @@
 .nutri-button:hover {
   background-color: #8cb62f;
 }
+
+.nutri-home-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.nutri-home-button {
+  background-color: #8cc63f;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+
+.nutri-home-button:hover {
+  background-color: #6ea132;
+}
