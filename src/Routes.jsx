@@ -26,6 +26,7 @@ import Calendar from './pages/recepcionista/homes/calendario/calendario'
 
 //Nutricionista
 import Nutritionist from './pages/nutricionista/paginaNutri'
+import HomeNutri from './pages/nutricionista/homeNutri/nutriHome'
 
 //URL´s inválidas
 import NotFound from './errors'
@@ -61,6 +62,7 @@ export default function Routess() {
 
         {/*Página Nutricionista*/}
         <Route path='/nutritionist' element={<Nutritionist/>}/>
+        <Route path='/homeNutritionist' element={<HomeNutri/>}/>
         
         {/*Erros*/}
         <Route path='*' element={<NotFound />}/>

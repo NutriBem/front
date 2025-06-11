@@ -1,0 +1,174 @@
+.homeNutri-wrapper {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nutri-header {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.homeNutri-card {
+  background-color: #e8f5e9;
+  border: 2px solid #a5d6a7;
+  border-radius: 10px;
+  padding: 30px 50px;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.homeNutri-card-label {
+  font-size: 18px;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+  
+.nutri-header img{
+  height: 40px;
+  margin-right: 12px;
+}
+
+
+.homeNutri-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 15px;
+}
+
+.homeNutri-banner {
+  background: linear-gradient(to right, #8cc63f, #3d833f);
+  padding: 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-align: left;
+}
+
+.homeNutri-banner h2{
+    color: #fff;
+}
+
+.homeNutri-content {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.homeNutri-content p {
+  font-size: 1rem;
+  font-family: "inter";
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.homeNutri-btn {
+  background-color: #8cc63f;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "inter";
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.homeNutri-btn:hover {
+  background-color: #6ea132;
+}
+
+@media (max-width: 768px) {
+  .nutri-header {
+    padding: 16px 20px;
+  }
+
+  .nutri-header img {
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .homeNutri-box {
+    width: 95%;
+    margin-top: 90px;
+  }
+
+  .homeNutri-banner h2 {
+    font-size: 20px;
+  }
+
+  .homeNutri-card {
+    padding: 16px 24px;
+  }
+
+  .homeNutri-card-value {
+    font-size: 28px;
+  }
+
+  .homeNutri-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nutri-header {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .nutri-header img {
+    height: 30px;
+    margin: 0;
+  }
+
+  .titulo {
+    font-size: 16px;
+  }
+
+  .homeNutri-box {
+    width: 100%;
+    border-radius: 0;
+    margin-top: 80px;
+  }
+
+  .homeNutri-banner {
+    text-align: center;
+    padding: 16px;
+  }
+
+  .homeNutri-banner h2 {
+    font-size: 18px;
+  }
+
+  .homeNutri-card {
+    padding: 14px 20px;
+  }
+
+  .homeNutri-card-label {
+    font-size: 14px;
+  }
+
+  .homeNutri-card-value {
+    font-size: 24px;
+  }
+
+  .homeNutri-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
