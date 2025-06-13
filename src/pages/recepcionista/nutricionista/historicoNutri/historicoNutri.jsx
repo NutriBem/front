@@ -21,7 +21,7 @@ function HistoricoNutri() {
 
           if (consulta.cpf) {
             try {
-              const paciente = await ApiService.patient.getByCpf(consulta.cpf);
+              const paciente = await ApiService.patient.getPatientByCpf(consulta.cpf);
               nomePaciente = paciente?.name || nomePaciente;
             } catch (err) {
               console.warn(`Erro ao buscar paciente do CPF ${consulta.cpf}`);

@@ -9,39 +9,31 @@ function HistoricoConsultas() {
   const [consultas, setConsultas] = useState([]);
 
   useEffect(() => {
-    async function fetchConsultasComNutricionistas() {
-      try {
-        const data = await ApiService.appointment.getAll();
+  async function fetchConsultasComNutricionistas() {
+    try {
+      const data = await ApiService.appointment.getAll();
 
-        // Para cada consulta, buscar o nome do nutricionista com base no CRM
-        const consultasComNome = await Promise.all(
-          data.map(async (consulta) => {
-            let nomeNutricionista = 'Nutricionista não informado';
+      const consultasComNome = await Promise.all(
+        data.map(async (consulta) => {
+          try {
+            const nutricionista = await ApiService.nutritionist.getNutritionistByCrm(consulta.crm);
+            return { ...consulta, nomeNutricionista: nutricionista.name };
+          } catch (err) {
+            console.warn(`Erro ao buscar nutricionista do CRM ${consulta.crm}`, err);
+            return { ...consulta, nomeNutricionista: "Nutricionista não informado" };
+          }
+        })
+      );
 
-            if (consulta.crm) {
-              try {
-                const nutricionista = await ApiService.nutricionist.getByCrm(consulta.crm);
-                nomeNutricionista = nutricionista?.name || nomeNutricionista;
-              } catch (err) {
-                console.warn(`Erro ao buscar nutricionista do CRM ${consulta.crm}`);
-              }
-            }
-
-            return {
-              ...consulta,
-              nomeNutricionista,
-            };
-          })
-        );
-
-        setConsultas(consultasComNome);
-      } catch (error) {
-        console.error("Erro ao buscar consultas:", error);
-      }
+      setConsultas(consultasComNome);
+    } catch (error) {
+      console.error("Erro ao buscar consultas:", error);
     }
+  }
 
-    fetchConsultasComNutricionistas();
-  }, []);
+  fetchConsultasComNutricionistas();
+}, []);
+
 
   return (
     <div className="page">
@@ -56,8 +48,7 @@ function HistoricoConsultas() {
               key={consulta.id}
               data={consulta.appointmentDate}
               horario={consulta.appointmentTime}
-              nutricionista={consulta.nomeNutricionista}
-            />
+              nutricionista={consulta.nomeNutricionista}            />
           ))}
         </section>
       </main>
